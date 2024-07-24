@@ -1,0 +1,157 @@
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+.mapboxgl-popup {
+    max-width: 400px;
+    font:
+            12px/20px 'Helvetica Neue',
+            Arial,
+            Helvetica,
+            sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background: #202020;
+}
+.variable-selection {
+    width: 85%;
+    height: 50px;
+    padding-left: 35px;
+    box-shadow: 0 0 85px rgb(90 86 130 / 20%);
+    border: 0;
+    margin-top:15px;
+    padding-right: 10px;
+    margin-left: 15px;
+    border-radius: 6px;
+
+}
+
+.variable-header {
+    font-family: Epilogue;
+    margin-left: 15px;
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.legend {
+    background: #fff;
+    box-shadow: 0 0 85px rgb(90 86 130 / 10%);
+    margin-top: 15px;
+    padding-top:15px;
+    border-radius: 6px;
+
+}
+
+#rounded-parent {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 85px rgb(90 86 130 / 20%);
+    height: 100vh;
+    position:absolute;
+    right:0;
+    width: 25%;
+    transition: 0.05 all ease;
+}
+
+.dot-small {
+    height: 20px;
+    width: 20px;
+}
+
+.dot-small, .dot-big {
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.3;
+    background-color: #bbb;
+}
+
+.dot-big {
+    height: 30px;
+    width: 30px;
+}
+
+#legend-container {
+    margin-right: 15px;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+#minimize {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    color: #202020;
+    margin-top:12px;
+    margin-left: 15px;
+
+}
+
+.parent1-minimized {
+    display: none;
+}
+
+.parent2-minimized {
+    width: 70px !important;
+    position: absolute;
+    right: 0px;
+    margin-right: 10px;
+    height: 50px !important;
+    top: 10px;
+}
+
+.popup-emphasis {
+    font-weight: 500;
+}
+
+.popup-light {
+    font-weight: 300;
+}
+
+.popup-emphasis, .popup-light, .popup-header, #popup-classification {
+    font-family: Montserrat;
+    font-size: 1.4em;
+}
+
+.info-container > .mapboxgl-popup-tip {
+    display: none;
+}
+
+
+.mapboxgl-popup-content {
+    padding: 20px;
+    width: 400px;
+}
+
+.popup-header {
+    font-size: 1.7em;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.mapboxgl-popup-close-button {
+    font-size: 1.5em;
+}
+
+#popup-classification {
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 1.4em;
+}
+
+.Warehouse {
+    background: #f2cbd0;
+}
+
+.DC {
+    background: #e8deff;
+}
+
+.popup-property {
+    margin-top: 40px;
+}
