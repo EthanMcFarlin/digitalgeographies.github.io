@@ -28,7 +28,7 @@
     <div id="rounded-parent">
         <button id="minimize" onclick="minimize();"><i id="arrow" class="fa-solid fa-down-left-and-up-right-to-center"></i></button>
        <div id="contentToMinimize">
-            <h1 class="variable-header">SVI Variables</h1>
+            <h1 class="variable-header" id="SVI-header">SVI Variables</h1>
             <select class="variable-selection" id="SVI-variables" onchange="updateSVIMeasure()">
                 <option value="0" selected>SPL_THEMES</option>
                 <option value="1">HBURD</option>
@@ -39,7 +39,7 @@
                 <option value="6">E_AFAM</option>
                 <option value="7">E_HISP</option>
             </select>
-            <h1 class="variable-header">EJ Variables</h1>
+            <h1 class="variable-header" id="EJ-header">EJ Variables</h1>
             <select class="variable-selection" id="EJ-variables" disabled="true" onchange="updateSVIMeasure()">
                 <option value="0" selected>Air Pollution: PM2.5</option>
                 <option value="1">HBURD</option>
@@ -50,9 +50,9 @@
                 <option value="6">E_AFAM</option>
                 <option value="7">E_HISP</option>
             </select>
-            <h1 class="variable-header">Legend</h1>
+            <h1 class="variable-header" id="legend-header">Legend</h1>
             <div class="row" id="legend-container">
-                <div class="col legend" style="margin-right: 30px;">
+                <div class="col legend" style="margin-right: 30px;" id="legend-1">
                     <div class="row align-items-center">
                         <div class="col text-center">
                             <span class="dot-small"></span>
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col legend">
+                <div class="col legend" id="legend-2">
                     <div class="row align-items-center">
                         <div class="col text-center">
                             <span class="dot-big" style="background-color: #cf2945"></span>
@@ -82,6 +82,12 @@
                 </div>
             </div>
 
+           <h1 class="variable-header" id="color-header">Color Toggle</h1>
+
+           <label class="switch" id="color-changer">
+               <input type="checkbox" onchange="updateColorScheme();">
+               <span class="slider round"></span>
+           </label>
 
         </div>
     </div>
