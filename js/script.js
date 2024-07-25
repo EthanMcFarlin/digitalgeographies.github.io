@@ -268,10 +268,10 @@ map.on('click', 'centers-layer', (e) => {
 
     if (classification == "Warehouse") {
         document.getElementById("popup-classification").classList = "Warehouse";
-        classificationColor = "#f2cbd0";
+        classificationColor = "#F2CBD1";
     } else {
         document.getElementById("popup-classification").classList = "DC";
-        classificationColor = "#e8deff";
+        classificationColor = "#E8DEFF";
     }
 
     let colorElement = document.getElementById("colorCorrespondingly");
