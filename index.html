@@ -30,6 +30,7 @@
        <div id="contentToMinimize">
             <h1 class="variable-header" id="SVI-header">SVI Variables</h1>
             <select class="variable-selection" id="SVI-variables" onchange="updateSVIMeasure()">
+                <option selected>Choose SVI Variable</option>
                 <option value="0" selected>SPL_THEMES</option>
                 <option value="1">HBURD</option>
                 <option value="2">E_DISABL</option>
@@ -40,19 +41,25 @@
                 <option value="7">E_HISP</option>
             </select>
             <h1 class="variable-header" id="EJ-header">EJ Variables</h1>
-            <select class="variable-selection" id="EJ-variables" disabled="true" onchange="updateSVIMeasure()">
-                <option value="0" selected>Air Pollution: PM2.5</option>
-                <option value="1">HBURD</option>
-                <option value="2">E_DISABL</option>
-                <option value="3">EPL_POV150</option>
-                <option value="4">EP_UNINSUR</option>
-                <option value="5">E_MINRTY</option>
-                <option value="6">E_AFAM</option>
-                <option value="7">E_HISP</option>
+            <select class="variable-selection" id="EJ-variables" onchange="updateEJMeasure()">
+                <option selected>Choose EJ Variable</option>
+                <option value="8">SPL_EJI</option>
+                <option value="9">RPL_EJI</option>
+                <option value="10">E_PM</option>
+                <option value="11">E_DSLPM</option>
+                <option value="12">E_IMPWTR</option>
+                <option value="13">RPL_EBM_DOM5</option>
+                <option value="14">E_TOTCR</option>
+                <option value="15">EPL_ASTHMA</option>
             </select>
             <h1 class="variable-header" id="legend-header">Legend</h1>
             <div class="row" id="legend-container">
                 <div class="col legend" style="margin-right: 30px;" id="legend-1">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <p id="legend1-variable" class="legend-subtext">SPL_THEMES</p>
+                        </div>
+                    </div>
                     <div class="row align-items-center">
                         <div class="col text-center">
                             <span class="dot-small"></span>
@@ -65,18 +72,24 @@
                             <p class="legend-text" id="max">13.57</p>
                         </div>
                     </div>
+
                 </div>
                 <div class="col legend" id="legend-2">
                     <div class="row align-items-center">
                         <div class="col text-center">
+                            <p id="legend2-variable" class="legend-subtext">Classification</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col text-center">
                             <span class="dot-big" style="background-color: #cf2945"></span>
-                            <p class="legend-text">Data Center</p>
+                            <p class="legend-text">Warehouse</p>
                         </div>
                     </div>
                     <div class="row align-items-center">
                         <div class="col text-center">
                             <span class="dot-big" style="background-color: #935eff"></span>
-                            <p class="legend-text">Warehouse</p>
+                            <p class="legend-text">Data Center</p>
                         </div>
                     </div>
                 </div>

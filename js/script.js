@@ -7,7 +7,7 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v11',
     projection: 'albers',
-    zoom: 4,
+    zoom: 2,
     minZoom: 3,
     center: [-90, 37.5],
     attributionControl: false
@@ -15,6 +15,8 @@ const map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.AttributionControl(), 'top-left');
 map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+
+var popup;
 
 map.on('style.load', () => {
     map.setFog({});
@@ -118,14 +120,81 @@ let scaleDictionary = [
         avg: 710.9013,
         desc: "Adjunct variable – Hispanic or Latino persons estimate, 2016-2020 ACS"
     },
+    {
+        name: "SPL_EJI",
+        min: 0,
+        max: 3,
+        avg: 1.325396,
+        desc: "Summation of the HVM, EBI, and SVI module percentile ranks"
+    },
+    {
+        name: "RPL_EJI",
+        min: 0,
+        max: 1,
+        avg: 0.5,
+        desc: "Percentile ranks of SPL_EJI"
+    },
+    {
+        name: "E_PM",
+        min: 3.25,
+        max: 16.05,
+        avg: 8.950115,
+        desc: "Annual mean days above PM2.5 regulatory standard - 3-year average"
+    },
+    {
+        name: "E_DSLPM",
+        min: 0.01,
+        max: 6.08,
+        avg: 0.4888175,
+        desc: "Ambient concentrations of diesel PM/m3"
+    },
+    {
+        name: "E_IMPWTR",
+        min: 0,
+        max: 100,
+        avg: 49.99622,
+        desc: "Percent of tract that intersects an impaired/impacted watershed at the HUC12 level"
+    },
+    {
+        name: "RPL_EBM_DOM5",
+        min: 0,
+        max: 0.9093,
+        avg: 0.4889685,
+        desc: "Percentile rank of domain consisting of impaired water bodies"
+    },
+    {
+        name: "E_TOTCR",
+        min: 8.77,
+        max: 31.76082,
+        avg: 31.76082,
+        desc: "The probability of contracting cancer over the course of a lifetime, assuming continuous exposure"
+    },
+    {
+        name: "EPL_ASTHMA",
+        min: 0,
+        max: 1,
+        avg: 0.4900416,
+        desc: "Percentile rank of percentage of individuals with asthma"
+    },
 ]
 
 let chosenSVIMeasure = 0;
 
-function updateSVIMeasure(){
-    chosenSVIMeasure = document.getElementById("SVI-variables").value;
+function updateEJMeasure(){
+    chosenSVIMeasure = document.getElementById("EJ-variables").value;
+    document.getElementById("SVI-variables").selectedIndex = 0;
     updateCircles();
     updateText();
+    popup.remove();
+
+}
+
+function updateSVIMeasure(){
+    chosenSVIMeasure = document.getElementById("SVI-variables").value;
+    document.getElementById("EJ-variables").selectedIndex = 0;
+    updateCircles();
+    updateText();
+    popup.remove();
 
 }
 
@@ -135,6 +204,9 @@ function updateText() {
 
     let maximum = document.getElementById("max");
     maximum.innerHTML = scaleDictionary[chosenSVIMeasure].max;
+
+    let legendVariable = document.getElementById("legend1-variable");
+    legendVariable.innerHTML = scaleDictionary[chosenSVIMeasure].name;
 }
 
 function updateCircles() {
@@ -162,7 +234,7 @@ map.on('style.load', () => {
 
     map.addSource('centers', {
         type: 'geojson',
-        data: 'data/map.geojson'
+        data: 'data/map_3.geojson'
     });
 
     map.addLayer({
@@ -225,6 +297,9 @@ map.on('click', 'centers-layer', (e) => {
     const property = e.features[0].properties[chosenProperty];
     const classification = e.features[0].properties.Classification;
     const dictDesc = scaleDictionary[chosenSVIMeasure].desc;
+    const year = e.features[0].properties["Launch\nYear"];
+    const sqft = e.features[0].properties[" Total Working\nSquare \nFeet"];
+    const status = e.features[0].properties["Facility_Status"];
 
     let relevantMean = scaleDictionary[chosenSVIMeasure].avg;
     relevantMean = relevantMean.toFixed(2);
@@ -246,7 +321,7 @@ map.on('click', 'centers-layer', (e) => {
         parityStatus = "less";
     }
 
-    new mapboxgl.Popup({className: "info-container" })
+    popup = new mapboxgl.Popup({className: "info-container" })
         .setLngLat(coordinates)
         // .setHTML(
         //     "<span>" +
@@ -259,9 +334,9 @@ map.on('click', 'centers-layer', (e) => {
         .setHTML(
             "<h1 class='popup-header'>" + description + "</h1>" +
             // "<p>" + "<span class='popup-classification'>" + classification + "</span>" + "</p>" +
-            "<p>" + "<span id='popup-classification'>" + classification + "</span>" + "</p>" +
+            "<p>" + "<span id='popup-classification'>" + classification + "</span>" + "<span id='popup-smallInfo'>" + "Est. " + year + ", " + sqft + " sq. ft." + "</span>" + "</p>" +
             "<p class='popup-property'>" + "<span class='popup-emphasis'>" + chosenProperty + ": " + "</span>" + "<span class='popup-light'>" + property + "</span>" + "</p>" +
-    "<p class='popup-relValue'><span id='colorCorrespondingly'>" + "<i id='colorArrow' class='fa-solid'></i>" + " " + percentDifference + "% " + parityStatus + "</span>" + " than the national average of " + "<span id='relMean'>" + relevantMean + "</span>" + " for all U.S. Census tracts in 2020." + "</p>" +
+    "<p class='popup-relValue'><span id='colorCorrespondingly'>" + "<i id='colorArrow' class='fa-solid'></i>" + " " + percentDifference + "% " + parityStatus + "</span>" + " than the national average of " + "<span id='relMean'>" + relevantMean + "</span>" + " for all U.S. Census tracts in 2022." + "</p>" +
             "<p class='popup-desc' id='descBorder'>" + "<span id='censusBureauDesc'>" + "Variable Description: " + "</span>" + "<span class='popup-small'>" + dictDesc + "</span>" + "</p>"
         )
         .addTo(map);

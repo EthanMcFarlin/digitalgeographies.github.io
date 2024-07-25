@@ -31,9 +31,9 @@ body {
 .variable-header {
     font-family: Epilogue;
     margin-left: 15px;
-    margin-top: 30px;
+    margin-top: 20px;
     font-weight: 700;
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 
 .legend {
@@ -115,7 +115,7 @@ body {
     font-weight: 300;
 }
 
-.popup-emphasis, .popup-light, .popup-header, #popup-classification, .popup-relValue {
+.popup-emphasis, .popup-light, .popup-header, #popup-classification, .popup-relValue, .popup-status {
     font-family: Montserrat;
     font-size: 1.4em;
 }
@@ -284,5 +284,19 @@ select.dark {
 }
 
 .legend-text {
+    font-size: 0.8em;
+    font-family: Open Sans;
+}
+
+.legend-subtext {
+    font-size: 0.8em;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+#popup-smallInfo {
+    margin-left: 10px;
+    font-family: Montserrat;
     font-size: 1em;
+    color: #505050;
 }
