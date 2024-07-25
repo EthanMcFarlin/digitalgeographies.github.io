@@ -16,11 +16,11 @@ body {
 }
 .variable-selection {
     width: 85%;
-    height: 50px;
+    height: 45px;
     padding-left: 35px;
     box-shadow: 0 0 85px rgb(90 86 130 / 20%);
     border: 0;
-    margin-top:15px;
+    margin-top:10px;
     padding-right: 10px;
     margin-left: 15px;
     border-radius: 6px;
@@ -31,9 +31,9 @@ body {
 .variable-header {
     font-family: Epilogue;
     margin-left: 15px;
-    margin-top: 50px;
+    margin-top: 30px;
     font-weight: 700;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .legend {
@@ -244,7 +244,7 @@ input:checked + .slider:before {
 
 #color-changer {
     margin-left: 15px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 h1.dark, #minimize.dark, select.dark {
@@ -281,4 +281,8 @@ select.dark {
 
 #censusBureauDesc {
     font-weight: 800;
+}
+
+.legend-text {
+    font-size: 1em;
 }
