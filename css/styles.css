@@ -48,9 +48,42 @@ body {
 }
 
 #colorScaleSelect.dark {
-    background: black;
+    background: #1A1A1B;
     outline: 0 !important;
 }
+
+#histogramParent.dark {
+    background: #1A1A1B;
+    box-shadow: rgba(149, 157, 165, 0.03) 0px 8px 24px;
+}
+
+#histogramContainer.dark {
+    background: #1A1A1B;
+    color: #fff !important;
+}
+
+#arrow2.dark {
+    color: #fff;
+}
+
+#histogramContainer.dark > svg > g > g > text {
+    fill: #fff !important;
+}
+
+#histogramContainer.dark > svg > g > text {
+    fill: #fff !important;
+}
+
+#histogramContainer.dark > svg > g > rect {
+    stroke-width: 0;
+}
+
+#histogramContainer.dark > svg > g > .grid > .tick > line {
+    stroke: #fff;
+    stroke-width: 0.9px;
+    stroke-opacity: 0.3;
+}
+
 
 .variable-header {
     font-family: Epilogue;

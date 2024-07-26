@@ -417,7 +417,8 @@ function updateColorScheme() {
     currentColorStatus = !currentColorStatus;
 
     let elementsToChange = ["SVI-header", "EJ-header", "legend-header", "color-header", "rounded-parent",
-        "minimize", "arrow", "SVI-variables", "EJ-variables", "legend-1", "legend-2", "colorScaleSelect"];
+        "minimize", "arrow", "SVI-variables", "EJ-variables", "legend-1", "legend-2", "colorScaleSelect",
+        "histogramParent", "histogramContainer", "arrow2"];
 
     if (currentColorStatus) {
         elementsToChange.forEach(function (element) {
