@@ -17,6 +17,7 @@ map.addControl(new mapboxgl.AttributionControl(), 'top-left');
 map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 
 var popup;
+let popupAppeared = false;
 
 map.on('style.load', () => {
     map.setFog({});
@@ -63,121 +64,6 @@ spinGlobe();
 // Variable Selection
 // ********
 
-let scaleDictionary = [
-    {
-        name: "SPL_THEMES",
-        min: 0.99,
-        max: 13.57,
-        avg: 7.674277,
-        desc: "Sum of series themes (1: Socioeconomic Status, 2: Household Characteristics, 3: Racial and Ethnic Minority Status, 4: Housing Type / Transportation)"
-    },
-    {
-        name: "E_HBURD",
-        min: 0,
-        max: 1644,
-        avg: 399.3317,
-        desc: "Housing cost burdened occupied housing units with annual income less than $75,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS"
-    },
-    {
-        name: "E_DISABL",
-        min: 0,
-        max: 1552,
-        avg: 489.3169,
-        desc: "Civilian noninstitutionalized population with a disability estimate, 2014-2018 ACS"
-    },
-    {
-        name: "EPL_POV150",
-        min: 0,
-        max: 0.9995,
-        avg: 0.4998178,
-        desc: "Percentile percentage of persons below 150% poverty estimate"
-    },
-    {
-        name: "EP_UNINSUR",
-        min: 0,
-        max: 100,
-        avg: 8.805836,
-        desc: "Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS"
-    },
-    {
-        name: "E_MINRTY",
-        min: 0,
-        max: 12602,
-        avg: 1559.891,
-        desc: "Minority (Hispanic or Latino (of any race); Black and African American, Not Hispanic or Latino; American Indian and Alaska Native, Not Hispanic or Latino; Asian, Not Hispanic or Latino; Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino; Two or More Races, Not Hispanic or Latino; Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS"
-    },
-    {
-        name: "E_AFAM",
-        min: 0,
-        max: 7843,
-        avg: 478.1086,
-        desc: "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS"
-    },
-    {
-        name: "E_HISP",
-        min: 0,
-        max: 7334,
-        avg: 710.9013,
-        desc: "Adjunct variable – Hispanic or Latino persons estimate, 2016-2020 ACS"
-    },
-    {
-        name: "SPL_EJI",
-        min: 0,
-        max: 3,
-        avg: 1.325396,
-        desc: "Summation of the HVM, EBI, and SVI module percentile ranks"
-    },
-    {
-        name: "RPL_EJI",
-        min: 0,
-        max: 1,
-        avg: 0.5,
-        desc: "Percentile ranks of SPL_EJI"
-    },
-    {
-        name: "E_PM",
-        min: 3.25,
-        max: 16.05,
-        avg: 8.950115,
-        desc: "Annual mean days above PM2.5 regulatory standard - 3-year average"
-    },
-    {
-        name: "E_DSLPM",
-        min: 0.01,
-        max: 6.08,
-        avg: 0.4888175,
-        desc: "Ambient concentrations of diesel PM/m3"
-    },
-    {
-        name: "E_IMPWTR",
-        min: 0,
-        max: 100,
-        avg: 49.99622,
-        desc: "Percent of tract that intersects an impaired/impacted watershed at the HUC12 level"
-    },
-    {
-        name: "RPL_EBM_DOM5",
-        min: 0,
-        max: 0.9093,
-        avg: 0.4889685,
-        desc: "Percentile rank of domain consisting of impaired water bodies"
-    },
-    {
-        name: "E_TOTCR",
-        min: 8.77,
-        max: 31.76082,
-        avg: 31.76082,
-        desc: "The probability of contracting cancer over the course of a lifetime, assuming continuous exposure"
-    },
-    {
-        name: "EPL_ASTHMA",
-        min: 0,
-        max: 1,
-        avg: 0.4900416,
-        desc: "Percentile rank of percentage of individuals with asthma"
-    },
-]
-
 let chosenSVIMeasure = 0;
 
 function updateEJMeasure(){
@@ -185,7 +71,17 @@ function updateEJMeasure(){
     document.getElementById("SVI-variables").selectedIndex = 0;
     updateCircles();
     updateText();
-    popup.remove();
+
+    if (popupAppeared) {
+        popup.remove();
+    }
+
+    myDoubleHistogram.updateVis();
+
+    changeColorScale();
+
+    // document.getElementById("colorLegend1").innerHTML = scaleDictionary[chosenSVIMeasure].name + " < mean u.s. census tract";
+    // document.getElementById("colorLegend2").innerHTML = scaleDictionary[chosenSVIMeasure].name + " > mean u.s. census tract";
 
 }
 
@@ -194,7 +90,19 @@ function updateSVIMeasure(){
     document.getElementById("EJ-variables").selectedIndex = 0;
     updateCircles();
     updateText();
-    popup.remove();
+
+    if (popupAppeared) {
+        popup.remove();
+    }
+
+    myDoubleHistogram.updateVis();
+
+    changeColorScale();
+
+
+    // document.getElementById("colorLegend1").innerHTML = scaleDictionary[chosenSVIMeasure].name + " < mean u.s. census tract";
+    // document.getElementById("colorLegend2").innerHTML = scaleDictionary[chosenSVIMeasure].name + " > mean u.s. census tract";
+
 
 }
 
@@ -225,6 +133,75 @@ function updateCircles() {
 
     );
 }
+
+// ********
+// Custom Color Scale
+// ********
+
+
+function changeColorScale() {
+
+    let colorScaleText = document.getElementById("colorScaleSelect").value;
+    let selectedVariable = scaleDictionary[chosenSVIMeasure].name;
+    let selectedMin = scaleDictionary[chosenSVIMeasure].min;
+    let selectedMax = scaleDictionary[chosenSVIMeasure].max;
+    let selectedAvg = scaleDictionary[chosenSVIMeasure].avg;
+
+    let colorLegend1 = document.getElementById("colorLegend1");
+    let colorLegend2 = document.getElementById("colorLegend2");
+
+    let colorDot1 = document.getElementById("colorDot1");
+    let colorDot2 = document.getElementById("colorDot2");
+
+    if (colorScaleText === "classification") {
+
+        colorLegend1.innerHTML = "Warehouse"
+        colorLegend2.innerHTML = "Data Center"
+
+        colorDot1.style.backgroundColor = "#cf2945";
+        colorDot2.style.backgroundColor = "#935eff"
+
+        map.setPaintProperty('centers-layer', 'circle-color', [
+                'match',
+                ['get', 'Classification'],
+                'Warehouse',
+                '#cf2945',
+                'Data Center',
+                '#935eff',
+                /* other */ '#e0d1ff'
+            ]
+        )
+    } else {
+
+        colorLegend1.innerHTML = selectedVariable + " < mean u.s. census tract"
+        colorLegend2.innerHTML = selectedVariable + " > mean u.s. census tract"
+
+        colorDot1.style.backgroundColor = "#0B8369";
+        colorDot2.style.backgroundColor = "#D2C074"
+
+        map.setPaintProperty('centers-layer', 'circle-color', [
+            'step',
+            ['get', selectedVariable],
+            '#0B8369', // any item where `someCountableProperty` is <= 19 will be displayed with this color
+            selectedAvg,
+            '#D2C074', // any item where `someCountableProperty` is <= 22 && > 19 will be displayed with this color
+            selectedMax,
+            '#A16612' // any item where `someCountableProperty` is > 22 will be displayed with this color
+            ]
+        )
+    }
+
+}
+
+// map.current.setPaintProperty("county", "fill-color", [
+//     'step',
+//     ['get', 'someCountableProperty'],
+//     '#afc5ff', // any item where `someCountableProperty` is <= 19 will be displayed with this color
+//     19,
+//     '#376eff', // any item where `someCountableProperty` is <= 22 && > 19 will be displayed with this color
+//     22,
+//     '#1c3780' // any item where `someCountableProperty` is > 22 will be displayed with this color
+// ]);
 
 // ********
 // On Load
@@ -289,6 +266,7 @@ function calculatePercentDifference(inputValue, inputVariable) {
 // On Click: Points
 // ********
 
+
 map.on('click', 'centers-layer', (e) => {
     let chosenProperty = scaleDictionary[chosenSVIMeasure].name;
 
@@ -300,6 +278,8 @@ map.on('click', 'centers-layer', (e) => {
     const year = e.features[0].properties["Launch\nYear"];
     const sqft = e.features[0].properties[" Total Working\nSquare \nFeet"];
     const status = e.features[0].properties["Facility_Status"];
+
+    popupAppeared = true;
 
     let relevantMean = scaleDictionary[chosenSVIMeasure].avg;
     relevantMean = relevantMean.toFixed(2);
@@ -321,7 +301,7 @@ map.on('click', 'centers-layer', (e) => {
         parityStatus = "less";
     }
 
-    popup = new mapboxgl.Popup({className: "info-container" })
+    popup = new mapboxgl.Popup({className: "info-container", idName: "distinctPopup"})
         .setLngLat(coordinates)
         // .setHTML(
         //     "<span>" +
@@ -378,6 +358,7 @@ map.on('mouseleave', 'centers-layer', () => {
 // ********
 
 let menu_status = false;
+let menu_status2 = true;
 
 function minimize() {
 
@@ -401,27 +382,29 @@ function minimize() {
         arrow.classList.add("fa-down-left-and-up-right-to-center")
         arrow.classList.remove("fa-up-right-and-down-left-from-center")
     }
+}
 
-    console.log(currentColorStatus, menu_status);
+function minimize2() {
+    let parent2 = document.getElementById("histogramParent")
+    let parent1 = document.getElementById("histogramContainer")
+    let arrow2 = document.getElementById("arrow2")
 
-    // while (currentColorStatus && menu_status) {
-    //     document.getElementById("rounded-parent").classList.backgroundColor = "#fff";
-    //     document.getElementById("minimize").style.color = "black";
-    // }
+    menu_status = !menu_status;
 
-    // if (currentColorStatus && menu_status) {
-    //     document.getElementById("rounded-parent").classList.backgroundColor = "#fff";
-    //     document.getElementById("minimize").style.color = "black";
-    //
-    // } else if ( (currentColorStatus === true) && (menu_status === false)) {
-    //     document.getElementById("rounded-parent").style.backgroundColor = "#1a1a1a";
-    //     document.getElementById("minimize").style.color = "white";
-    // } else if ( (currentColorStatus === false) && (menu_status === false)) {
-    //     // document.getElementById("rounded-parent").style.backgroundColor = "#fff";
-    // }
+    if (menu_status) {
+        parent1.classList.add("parent1-minimized");
+        parent2.classList.add("parent3-minimized");
 
+        arrow2.classList.remove("fa-down-left-and-up-right-to-center")
+        arrow2.classList.add("fa-chart-simple")
 
+    } else {
+        parent1.classList.remove("parent1-minimized");
+        parent2.classList.remove("parent3-minimized");
 
+        arrow2.classList.add("fa-down-left-and-up-right-to-center")
+        arrow2.classList.remove("fa-chart-simple")
+    }
 }
 
 // ********
@@ -434,7 +417,7 @@ function updateColorScheme() {
     currentColorStatus = !currentColorStatus;
 
     let elementsToChange = ["SVI-header", "EJ-header", "legend-header", "color-header", "rounded-parent",
-        "minimize", "arrow", "SVI-variables", "EJ-variables", "legend-1", "legend-2"];
+        "minimize", "arrow", "SVI-variables", "EJ-variables", "legend-1", "legend-2", "colorScaleSelect"];
 
     if (currentColorStatus) {
         elementsToChange.forEach(function (element) {
@@ -447,5 +430,9 @@ function updateColorScheme() {
             map.setStyle('mapbox://styles/mapbox/' + "light-v11");
         })
     }
+
+    document.getElementById("colorScaleSelect").selectedIndex = 0;
+    changeColorScale();
+
 
 }

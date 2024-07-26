@@ -1,0 +1,87 @@
+
+#histogramParent {
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+    background: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    border-radius: 8px;
+    width: 410px;
+    height: 365px;
+    padding-top:5px;
+
+
+}
+
+#histogramContainer {
+    width: 100%;
+    height: 90%;
+    background: #fff;
+}
+
+.bar-title {
+    font-family: Montserrat;
+    font-weight: 650;
+}
+
+.histCircleLegend {
+
+}
+
+.histTextLegend {
+    font-family: Montserrat;
+    text-align: left;
+    left: 0;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: left;
+    background: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 0px;
+    font: 9pt Montserrat;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    opacity: 0;
+    /*border-top: 8px solid #E8F0FC;*/
+}
+
+.grid path {
+    stroke-width: 0;
+    stroke: #333333;
+}
+.grid .tick line {
+    stroke: #333333;
+    stroke-width: 0.3px;
+    stroke-opacity: 0.3;
+}
+
+.ntlAvgAnnotation {
+    font-family: Montserrat;
+    font-color: #3b3b3b;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.77em;
+}
+
+.axisTitle {
+    font-size: 0.7em;
+    font-family: Montserrat;
+    font-color: #3b3b3b;
+}
+
+#histogramContainer.parent2-minimized {
+    display: none;
+}
+
+.parent3-minimized {
+    width: 70px !important;
+    position: absolute;
+    right: 0px;
+    margin-right: 10px;
+    height: 50px !important;
+    bottom: 10px;
+}

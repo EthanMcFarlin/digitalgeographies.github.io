@@ -1,6 +1,10 @@
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
+.mapboxgl-popup-content {
+    padding: 25px !important;
+}
+
 .mapboxgl-popup {
     max-width: 400px;
     font:
@@ -26,6 +30,26 @@ body {
     border-radius: 6px;
     border-right: 16px solid transparent;
 
+}
+
+#colorScaleSelect {
+    width: 95%;
+    height: 20px;
+    /*box-shadow: 0 0 85px rgb(90 86 130 / 50%);*/
+    border: 0;
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding-left: 0px;
+    padding-right: 0px;
+    transform:translateY(-5px);
+    text-align: center;
+
+}
+
+#colorScaleSelect.dark {
+    background: black;
+    outline: 0 !important;
 }
 
 .variable-header {
@@ -55,6 +79,7 @@ body {
     width: 25%;
     transition: 0.05 all ease;
     overflow-y: scroll;
+    padding-bottom: 30px;
 }
 
 .dot-small {
@@ -81,6 +106,15 @@ body {
 }
 
 #minimize {
+    margin-top: 12px;
+}
+
+#minimize2 {
+    margin-top: 8px;
+
+}
+
+#minimize, #minimize2 {
     background: none;
     color: inherit;
     border: none;
@@ -89,7 +123,6 @@ body {
     cursor: pointer;
     outline: inherit;
     color: #202020;
-    margin-top:12px;
     margin-left: 15px;
 
 }
@@ -101,7 +134,7 @@ body {
 .parent2-minimized {
     width: 70px !important;
     position: absolute;
-    right: 0px;
+    right: 15px !important;
     margin-right: 10px;
     height: 50px !important;
     top: 10px;
@@ -291,7 +324,7 @@ select.dark {
 .legend-subtext {
     font-size: 0.8em;
     font-weight: 400;
-    margin-bottom: 15px;
+    margin-bottom: 2px;
 }
 
 #popup-smallInfo {
@@ -300,3 +333,15 @@ select.dark {
     font-size: 1em;
     color: #505050;
 }
+
+#legend1-variable, #legend2-variable {
+    font-weight: 700;
+}
+
+.legend-microtext {
+    font-color: #505050;
+    font-weight: 400;
+    margin-bottom: 15px;
+    font-size: 0.75em;
+}
+
