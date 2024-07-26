@@ -378,3 +378,32 @@ select.dark {
     font-size: 0.75em;
 }
 
+.infoIcon {
+    font-size: 0.9em;
+    margin-left: 2px;
+    /*transform:translateY(-5px);*/
+    color: #626262;
+}
+
+#variableInfoContainer2 > svg > g > foreignObject > body {
+    margin-left: 6px;
+}
+
+#newBodyEJ, #newBodySVI {
+    background: #FBFBFC;
+}
+
+#newBodyEJ.dark, #newBodySVI.dark {
+    background: #1B1B1C;
+
+}
+
+#newBodyEJ.dark > i, #newBodySVI.dark > i {
+    color: #dcdcdc;
+
+}
+
+/*#variableInfoContainer1 {*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*}*/

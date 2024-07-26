@@ -35,7 +35,7 @@
     <div id="rounded-parent">
        <button id="minimize" onclick="minimize();"><i id="arrow" class="fa-solid fa-down-left-and-up-right-to-center"></i></button>
        <div id="contentToMinimize">
-            <h1 class="variable-header" id="SVI-header">SVI Variables</h1>
+            <h1 class="variable-header" id="SVI-header">SVI Variables <span id="variableInfoContainer1"></span> </h1>
             <select class="variable-selection" id="SVI-variables" onchange="updateSVIMeasure()">
                 <option selected>Choose SVI Variable</option>
                 <option value="0" selected>SPL_THEMES</option>
@@ -47,7 +47,7 @@
                 <option value="6">E_AFAM</option>
                 <option value="7">E_HISP</option>
             </select>
-            <h1 class="variable-header" id="EJ-header">EJ Variables</h1>
+            <h1 class="variable-header" id="EJ-header">EJ Variables<span id="variableInfoContainer2"></span></h1>
             <select class="variable-selection" id="EJ-variables" onchange="updateEJMeasure()">
                 <option selected>Choose EJ Variable</option>
                 <option value="8">SPL_EJI</option>
@@ -120,6 +120,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/histogram.js"></script>
+<script src="js/infoCircle.js"></script>
 <script src="js/main.js"></script>
 <script src="js/reference-values.js"></script>
 <script src="js/script.js"></script>

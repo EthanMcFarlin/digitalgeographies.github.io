@@ -39,7 +39,7 @@ let scaleDictionary = [
         min: 0,
         max: 12602,
         avg: 1559.891,
-        desc: "Minority (Hispanic or Latino (of any race); Black and African American, Not Hispanic or Latino; American Indian and Alaska Native, Not Hispanic or Latino; Asian, Not Hispanic or Latino; Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino; Two or More Races, Not Hispanic or Latino; Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS"
+        desc: "Minority (Hispanic or Latino (of any race); Black and African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Two or More Races; Other Races) estimate, 2016-2020 ACS"
     },
     {
         name: "E_AFAM",

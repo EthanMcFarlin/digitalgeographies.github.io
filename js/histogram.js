@@ -84,8 +84,6 @@ class doubleHistogram {
     wrangleData(){
         let vis = this
 
-        // console.log("view the data: ", vis.amazonData);
-        
         vis.displayData = vis.amazonData.filter(function(d) {
             return (d[vis.variableName] > -999);
         })
@@ -103,7 +101,7 @@ class doubleHistogram {
     updateVis(){
         let vis = this;
 
-        console.log("update vis");
+        // console.log("update vis");
 
         vis.variableNumber = chosenSVIMeasure;
         vis.variableName = scaleDictionary[vis.variableNumber].name;

@@ -18,6 +18,7 @@ map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 
 var popup;
 let popupAppeared = false;
+let currentVariableSelectionType = "SVI";
 
 map.on('style.load', () => {
     map.setFog({});
@@ -71,6 +72,7 @@ function updateEJMeasure(){
     document.getElementById("SVI-variables").selectedIndex = 0;
     updateCircles();
     updateText();
+    currentVariableSelectionType = "EJ";
 
     if (popupAppeared) {
         popup.remove();
@@ -79,6 +81,8 @@ function updateEJMeasure(){
     myDoubleHistogram.updateVis();
 
     changeColorScale();
+
+    myInfoCircle2.updateVis();
 
     // document.getElementById("colorLegend1").innerHTML = scaleDictionary[chosenSVIMeasure].name + " < mean u.s. census tract";
     // document.getElementById("colorLegend2").innerHTML = scaleDictionary[chosenSVIMeasure].name + " > mean u.s. census tract";
@@ -90,6 +94,7 @@ function updateSVIMeasure(){
     document.getElementById("EJ-variables").selectedIndex = 0;
     updateCircles();
     updateText();
+    currentVariableSelectionType = "SVI";
 
     if (popupAppeared) {
         popup.remove();
@@ -99,6 +104,7 @@ function updateSVIMeasure(){
 
     changeColorScale();
 
+    myInfoCircle1.updateVis();
 
     // document.getElementById("colorLegend1").innerHTML = scaleDictionary[chosenSVIMeasure].name + " < mean u.s. census tract";
     // document.getElementById("colorLegend2").innerHTML = scaleDictionary[chosenSVIMeasure].name + " > mean u.s. census tract";
@@ -373,14 +379,14 @@ function minimize() {
         parent2.classList.add("parent2-minimized");
 
         arrow.classList.remove("fa-down-left-and-up-right-to-center")
-        arrow.classList.add("fa-up-right-and-down-left-from-center")
+        arrow.classList.add("fa-sliders")
 
     } else {
         parent1.classList.remove("parent1-minimized");
         parent2.classList.remove("parent2-minimized");
 
         arrow.classList.add("fa-down-left-and-up-right-to-center")
-        arrow.classList.remove("fa-up-right-and-down-left-from-center")
+        arrow.classList.remove("fa-sliders")
     }
 }
 
@@ -389,9 +395,9 @@ function minimize2() {
     let parent1 = document.getElementById("histogramContainer")
     let arrow2 = document.getElementById("arrow2")
 
-    menu_status = !menu_status;
+    menu_status2 = !menu_status2;
 
-    if (menu_status) {
+    if (menu_status2) {
         parent1.classList.add("parent1-minimized");
         parent2.classList.add("parent3-minimized");
 
@@ -418,7 +424,7 @@ function updateColorScheme() {
 
     let elementsToChange = ["SVI-header", "EJ-header", "legend-header", "color-header", "rounded-parent",
         "minimize", "arrow", "SVI-variables", "EJ-variables", "legend-1", "legend-2", "colorScaleSelect",
-        "histogramParent", "histogramContainer", "arrow2"];
+        "histogramParent", "histogramContainer", "arrow2", "newBodyEJ", "newBodySVI"];
 
     if (currentColorStatus) {
         elementsToChange.forEach(function (element) {
