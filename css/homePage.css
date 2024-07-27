@@ -50,7 +50,7 @@ body {
     line-height: 1.9;
 }
 
-#exploreMap {
+#exploreMap, #documentation {
     display: inline-block;
     border-radius: 30px;
     font-size: 13.33px;
@@ -68,12 +68,13 @@ body {
     transition: 0.3s;
 }
 
-#exploreMap:hover {
+#exploreMap:hover, #documentation:hover {
     transition: 0.3s;
     background-color: rgba(207,39,68, 0.2);
     /*outline: 1px solid rgba(255, 255, 255, 0.01);*/
 
 }
+
 
 .strikeThrough {
     background: #CF2744;

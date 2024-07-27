@@ -65,10 +65,10 @@ class doubleHistogram {
             .attr('text-anchor', 'middle');
 
         vis.refLine = vis.svg.append("line")
-            .attr("x1", 100 )
-            .attr("x2", 100 )
-            .attr("y1", vis.height)
-            .attr("y2", 60)
+            .attr("x1", 0 )
+            .attr("x2", 0 )
+            .attr("y1", 0)
+            .attr("y2", 0)
             .attr("stroke", "#fc8403")
             .attr("opacity", 0.8)
             .attr("stroke-width", "3")
@@ -366,6 +366,8 @@ class doubleHistogram {
             })
             .transition()
             .duration(1000)
+            .attr("y1", vis.height)
+            .attr("y2", 60)
             .attr("x1", vis.x(scaleDictionary[vis.variableNumber].avg) )
             .attr("x2", vis.x(scaleDictionary[vis.variableNumber].avg) )
 
