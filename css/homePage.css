@@ -1,0 +1,88 @@
+body {
+    background: #1A1A1B !important;
+    /*background-image: url('img/backgroundMap.png') !important;*/
+}
+
+.test {
+    width: 800px;
+    height: auto;
+    /*background-image: url('img/backgroundMap3.png') !important;*/
+    position: absolute;
+    z-index: -5;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.5;
+    transition: 0.3s;
+    margin-top: 60px;
+
+}
+
+@media only screen and (max-width: 900px) {
+    .test {
+        width: 500px;
+        margin-top: 150px;
+    }
+}
+
+
+.headerInformation {
+    color: #fff;
+    margin-top:220px;
+}
+
+.headerRow {
+    text-align: center;
+}
+
+.primaryText {
+    font-family: Epilogue;
+    font-weight: 800;
+
+}
+
+.secondaryText {
+    font-family: Epilogue;
+    font-weight: 300;
+    width: 80%;
+    font-size: 1.5em;
+    line-height: 1.9;
+}
+
+#exploreMap {
+    display: inline-block;
+    border-radius: 30px;
+    font-size: 13.33px;
+    height: 50px;
+    width: 150px;
+    outline: none;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-family: Montserrat;
+    color: #fff;
+    outline: 1px solid #fff;
+    font-weight: 800;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+#exploreMap:hover {
+    transition: 0.3s;
+    background-color: rgba(207,39,68, 0.2);
+    /*outline: 1px solid rgba(255, 255, 255, 0.01);*/
+
+}
+
+.strikeThrough {
+    background: #CF2744;
+    padding: 7px;
+    color: #fff;
+    font-weight: 700;
+
+}
+
+.strikeThrough > i {
+    font-size: 16pt;
+}

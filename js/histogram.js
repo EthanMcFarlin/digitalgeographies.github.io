@@ -55,7 +55,7 @@ class doubleHistogram {
             .attr("class", "axisTitle")
             .attr("y", -vis.margin.left + 30)
             .attr("x", -vis.margin.top - 70)
-            .text("# of Facilities")
+            .text("# of Tracts with Facilities")
 
         vis.titleText = vis.svg.append('g')
             .attr('class', 'title bar-title')
@@ -195,7 +195,7 @@ class doubleHistogram {
                     .style("top", event.pageY + "px")
                     .html(`
                             <div>
-                                <p><span><b>Number of Warehouses</b>: ${d.length}</span></p>
+                                <p><span>The number of census tracts which contain <b>warehouses</b> <br>within this <b>${scaleDictionary[vis.variableNumber].name}</b> value range is <b>${d.length}</b></span>.</p>
                             </div>`);
 
             })
@@ -247,7 +247,7 @@ class doubleHistogram {
                     .style("top", event.pageY + "px")
                     .html(`
                         <div>
-                            <p><span><b>Number of Data Centers</b>: ${d.length}</span></p>
+                                <p><span>The number of census tracts which contain <b>data centers</b> <br>within this <b>${scaleDictionary[vis.variableNumber].name}</b> value range is <b>${d.length}</b></span>.</p>
                         </div>`);
 
             })
@@ -350,7 +350,7 @@ class doubleHistogram {
                     .style("top", event.pageY + "px")
                     .html(`
                         <div>
-                            <p><span><b>U.S. Census Tract National Average:</b> ${scaleDictionary[vis.variableNumber].avg.toFixed(2)}</span></p>
+                            <p><span><b>U.S. Census Tract National ${scaleDictionary[vis.variableNumber].name} Average:</b> ${scaleDictionary[vis.variableNumber].avg.toFixed(2)}</span></p>
                         </div>`);
 
             })

@@ -79,7 +79,7 @@ let scaleDictionary = [
     {
         name: "E_DSLPM",
         min: 0.01,
-        max: 6.08,
+        max: 2.5,
         avg: 0.4888175,
         desc: "Ambient concentrations of diesel PM/m3"
     },
@@ -100,7 +100,7 @@ let scaleDictionary = [
     {
         name: "E_TOTCR",
         min: 8.77,
-        max: 31.76082,
+        max: 80,
         avg: 31.76082,
         desc: "The probability of contracting cancer over the course of a lifetime, assuming continuous exposure"
     },

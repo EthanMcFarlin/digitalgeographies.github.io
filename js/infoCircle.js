@@ -39,6 +39,7 @@ class infoCircle {
             .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`)
             .append("xhtml:body")
             .attr("id", "newBody" + vis.selectionType)
+            .attr("class", "dark")
             .html('<i class="fa-solid fa-circle-info infoIcon"></i>');
 
 

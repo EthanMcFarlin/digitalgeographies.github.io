@@ -5,7 +5,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiZXRoYW5tY2ZhcmxpbiIsImEiOiJjbHl6NGo0OG8wbm5iMmxwdnVvNWl6dHUwIn0.pyb_HA0qJwJ9jZkrmlKcqA';
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v11',
+    style: 'mapbox://styles/mapbox/dark-v11',
     projection: 'albers',
     zoom: 2,
     minZoom: 3,
@@ -307,7 +307,7 @@ map.on('click', 'centers-layer', (e) => {
         parityStatus = "less";
     }
 
-    popup = new mapboxgl.Popup({className: "info-container", idName: "distinctPopup"})
+    popup = new mapboxgl.Popup({className: "info-container"})
         .setLngLat(coordinates)
         // .setHTML(
         //     "<span>" +
@@ -322,7 +322,7 @@ map.on('click', 'centers-layer', (e) => {
             // "<p>" + "<span class='popup-classification'>" + classification + "</span>" + "</p>" +
             "<p>" + "<span id='popup-classification'>" + classification + "</span>" + "<span id='popup-smallInfo'>" + "Est. " + year + ", " + sqft + " sq. ft." + "</span>" + "</p>" +
             "<p class='popup-property'>" + "<span class='popup-emphasis'>" + chosenProperty + ": " + "</span>" + "<span class='popup-light'>" + property + "</span>" + "</p>" +
-    "<p class='popup-relValue'><span id='colorCorrespondingly'>" + "<i id='colorArrow' class='fa-solid'></i>" + " " + percentDifference + "% " + parityStatus + "</span>" + " than the national average of " + "<span id='relMean'>" + relevantMean + "</span>" + " for all U.S. Census tracts in 2022." + "</p>" +
+    "<p class='popup-relValue'>" + "The census tract where this " + classification + " is located has a " + chosenProperty + " value " + "<br><span id='colorCorrespondingly'>" + "<i id='colorArrow' class='fa-solid'></i>" + " " + percentDifference + "% " + parityStatus + "</span>" + " than the national average of " + "<span id='relMean'>" + relevantMean + "</span>" + " for all U.S. Census tracts in 2022." + "</p>" +
             "<p class='popup-desc' id='descBorder'>" + "<span id='censusBureauDesc'>" + "Variable Description: " + "</span>" + "<span class='popup-small'>" + dictDesc + "</span>" + "</p>"
         )
         .addTo(map);
@@ -364,7 +364,7 @@ map.on('mouseleave', 'centers-layer', () => {
 // ********
 
 let menu_status = false;
-let menu_status2 = true;
+let menu_status2 = false;
 
 function minimize() {
 
@@ -428,13 +428,13 @@ function updateColorScheme() {
 
     if (currentColorStatus) {
         elementsToChange.forEach(function (element) {
-            document.getElementById(element).classList.add("dark");
-            map.setStyle('mapbox://styles/mapbox/' + "dark-v11");
+            document.getElementById(element).classList.remove("dark");
+            map.setStyle('mapbox://styles/mapbox/' + "light-v11");
         })
     } else {
         elementsToChange.forEach(function (element) {
-            document.getElementById(element).classList.remove("dark");
-            map.setStyle('mapbox://styles/mapbox/' + "light-v11");
+            document.getElementById(element).classList.add("dark");
+            map.setStyle('mapbox://styles/mapbox/' + "dark-v11");
         })
     }
 
