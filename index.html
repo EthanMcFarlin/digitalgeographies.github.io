@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/homePage.css" rel="stylesheet">
@@ -17,6 +19,53 @@
 
 </head>
 <body>
+
+<div id="teamInfo" class="minimized">
+    <a><i id="teamArrow" class="fa-solid fa-xmark" onclick="summonTeamPopup();"></i></a>
+    <div class="container">
+        <div class="row">
+            <div class="col personContainer">
+                <img class="teamImg" src="img/ethan.png">
+                <h1 class="teamName">Ethan McFarlin</h1>
+                <h2 class="teamRole">Software Engineer</h2>
+                <p class="teamBio">Ethan is a recent Computer Science graduate and information designer from Harvard College.</p>
+                <div class="iconContainer">
+                    <a href="https://www.linkedin.com/in/ethan-mcfarlin/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://ethanmcfarlin.github.io/" target="_blank"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col personContainer">
+                <img class="teamImg" src="img/lauren.png">
+                <h1 class="teamName">Lauren Bridges</h1>
+                <h2 class="teamRole">Lead Researcher</h2>
+                <p class="teamBio">Lauren is an Assistant Professor of Media Studies at the University of Virginia and 2023-2024 fellow at the Berkman Klein Center.</p>
+                <div class="iconContainer">
+                    <a href="https://www.linkedin.com/in/laurenebridges" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.laurenebridges.com/bio" target="_blank"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="homeNavBar">
+    <ul id="subNav" class="navElement">
+        <li>
+            <img id="logoImage" src="img/logo.png">
+        </li>
+        <li>
+            <a class="noDecoration" href="https://docs.google.com/document/d/1nBUCBCd8HkAAgKCmKdjwQB39zes-ehmYB8zraeX7aYc/edit?usp=sharing" target="_blank"><p>Documentation</p></a>
+        </li>
+        <li>
+            <a onclick="summonTeamPopup();"><p>Team</p></a>
+        </li>
+        <li>
+            <a class="noDecoration" href="https://docs.google.com/document/d/1M3iyVZ8ZyNtwKdja-CiAaMlfys6ngfVKp4D_M2MsRfQ/edit?usp=sharing" target="_blank"><p>Changelog</p></a>
+        </li>
+    </ul>
+</div>
 
 <div class="container-fluid">
 
@@ -40,5 +89,6 @@
     </div>
 </div>
 
+<script src="js/homePage.js"></script>
 </body>
 </html>

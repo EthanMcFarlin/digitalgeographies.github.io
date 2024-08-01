@@ -15,21 +15,21 @@ body {
     margin-right: auto;
     opacity: 0.5;
     transition: 0.3s;
-    margin-top: 60px;
+    margin-top: -20px;
 
 }
 
 @media only screen and (max-width: 900px) {
     .test {
         width: 500px;
-        margin-top: 150px;
+        margin-top: 30px;
     }
 }
 
 
 .headerInformation {
     color: #fff;
-    margin-top:220px;
+    margin-top:140px;
 }
 
 .headerRow {
@@ -86,4 +86,153 @@ body {
 
 .strikeThrough > i {
     font-size: 16pt;
+}
+
+#homeNavBar {
+    text-align: center;
+    transform:translateX(-30px);
+}
+
+#subNav > li {
+    display: inline-block;
+    list-style: none;
+    height: 80px;
+    line-height: 40px;
+    padding: 0 2vw;
+    text-align: center;
+    color: #fff;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 20px;
+}
+
+#subNav > li > a > p {
+    opacity: 0.4;
+}
+
+#subNav > li > a > p {
+    transition: 0.2s;
+}
+
+#subNav > li > a:hover {
+    cursor: pointer;
+}
+
+#subNav > li > a > p:hover {
+    transition: 0.2s;
+    opacity: 1;
+}
+
+
+.navElement {
+    display: inline-block;
+    margin: auto;
+}
+
+#logoImage {
+    width: 25px;
+    height: auto;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+#logoImage:hover {
+    transition: 0.2s;
+    opacity: 1;
+}
+
+#teamInfo {
+    height: 100%;
+    width: 350px;
+    background: #222221;
+    position: fixed;
+    top: 0;
+    right: 0;
+    box-shadow: 0 0 85px rgb(90 86 130 / 10%);
+    /* transition: display 1s linear; */
+    /*display: none;*/
+    overflow-y: auto;
+    padding-bottom: 100px;
+    padding-top: 20px;
+    z-index: 2;
+}
+
+.teamImg {
+    width: 180px;
+    height: auto;
+}
+
+.personContainer {
+    text-align: center;
+
+}
+
+.teamName, .teamRole, .teamBio {
+    font-family: Montserrat;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: #fff;
+}
+
+.teamName {
+    font-weight: 800;
+    font-size: 1em;
+}
+
+.teamRole {
+    font-weight: 300;
+    font-size: 0.9em;
+}
+
+.teamBio {
+    font-weight: 400;
+    font-size: 0.8em;
+    color: #cfcfcf;
+}
+
+.iconContainer > a > i {
+    color: #e34661;
+    /*background: #1A1A1B;*/
+    border-radius: 8px;
+    display: inline-block;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 14pt;
+    opacity: 0.9;
+    transition: 0.7s;
+}
+
+.iconContainer > a > i:hover {
+    transition: 0.2s;
+    opacity: 1;
+}
+
+
+.iconContainer {
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+#teamArrow {
+    color: #fff;
+    transform:translateX(25px);
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+#teamArrow:hover {
+    transition: 0.2s;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.minimized {
+    display: none;
+}
+
+.noDecoration {
+    text-decoration: none;
+    color: #fff;
 }
