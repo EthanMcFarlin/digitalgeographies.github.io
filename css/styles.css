@@ -174,16 +174,21 @@ body {
 }
 
 .popup-emphasis {
-    font-weight: 500;
+    font-weight: 700 !important;
 }
 
 .popup-light {
-    font-weight: 300;
+    font-weight: 300 !important;
 }
 
-.popup-emphasis, .popup-light, .popup-header, #popup-classification, .popup-relValue, .popup-status {
-    font-family: Montserrat;
-    font-size: 1.3em;
+.popup-emphasis, .popup-light, #popup-classification, .popup-relValue, .popup-status {
+    font-family: Open Sans;
+    font-size: 11pt;
+}
+
+.popup-header {
+    font-family: Epilogue;
+    font-weight: 800;
 }
 
 .popup-desc {
@@ -216,7 +221,7 @@ body {
 }
 
 .popup-header {
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: 700;
     margin-bottom: 15px;
 }

@@ -322,7 +322,7 @@ map.on('click', 'centers-layer', (e) => {
             // "<p>" + "<span class='popup-classification'>" + classification + "</span>" + "</p>" +
             "<p>" + "<span id='popup-classification'>" + classification + "</span>" + "<span id='popup-smallInfo'>" + "Est. " + year + ", " + sqft + " sq. ft." + "</span>" + "</p>" +
             "<p class='popup-property'>" + "<span class='popup-emphasis'>" + chosenProperty + ": " + "</span>" + "<span class='popup-light'>" + property + "</span>" + "</p>" +
-    "<p class='popup-relValue'>" + "The census tract where this " + classification + " is located has a " + chosenProperty + " value " + "<br><span id='colorCorrespondingly'>" + "<i id='colorArrow' class='fa-solid'></i>" + " " + percentDifference + "% " + parityStatus + "</span>" + " than the national average of " + "<span id='relMean'>" + relevantMean + "</span>" + " for all U.S. Census tracts in 2022." + "</p>" +
+    "<p class='popup-relValue'>" + "The census tract where this " + classification + " is located has a " + "<span class='popup-emphasis'>" + chosenProperty + "</span>" + " value " + "<span id='colorCorrespondingly'>" + "<i id='colorArrow' class='fa-solid'></i>" + " " + percentDifference + "% " + parityStatus + "</span>" + " than the national average of " + "<span id='relMean'>" + relevantMean + "</span>" + " for all U.S. Census tracts in 2022." + "</p>" +
             "<p class='popup-desc' id='descBorder'>" + "<span id='censusBureauDesc'>" + "Variable Description: " + "</span>" + "<span class='popup-small'>" + dictDesc + "</span>" + "</p>"
         )
         .addTo(map);
