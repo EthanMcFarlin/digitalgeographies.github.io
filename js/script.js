@@ -6,9 +6,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZXRoYW5tY2ZhcmxpbiIsImEiOiJjbHl6NGo0OG8wbm5iM
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v11',
+    // style: {
+    //     version: 8,
+    //     sources: {},
+    //     layers: [
+    //         {
+    //             'id': 'background',
+    //             'type': 'background',
+    //             'paint': {
+    //                 'background-color': '#1A1A1B'
+    //             }
+    //         }
+    //     ]
+    // },
     projection: 'albers',
     zoom: 2,
-    minZoom: 3,
+    minZoom: 3.5,
     center: [-90, 37.5],
     attributionControl: false
 });
