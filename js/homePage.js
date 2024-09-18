@@ -10,3 +10,16 @@ function summonTeamPopup() {
     }
 
 }
+
+function scrollToArticle() {
+    document.querySelector('#article').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const jumpingArrow = document.getElementById('jumpingArrow');
+    if (jumpingArrow) {
+        jumpingArrow.addEventListener('click', scrollToArticle);
+    }
+});

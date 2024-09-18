@@ -19,7 +19,6 @@
 
 </head>
 <body>
-
 <div id="teamInfo" class="minimized">
     <a><i id="teamArrow" class="fa-solid fa-xmark" onclick="summonTeamPopup();"></i></a>
     <div class="container">
@@ -50,49 +49,143 @@
     </div>
 </div>
 
-<div id="homeNavBar">
-    <ul id="subNav" class="navElement">
-        <li id="logo_li">
-            <img id="logoImage" src="img/logo.png">
-        </li>
-        <li>
-            <a class="noDecoration" href="https://docs.google.com/document/d/1nBUCBCd8HkAAgKCmKdjwQB39zes-ehmYB8zraeX7aYc/edit?usp=sharing" target="_blank"><p>Documentation</p></a>
-        </li>
-        <li>
-            <a onclick="summonTeamPopup();"><p>Team</p></a>
-        </li>
-        <li>
-            <a class="noDecoration" href="https://docs.google.com/document/d/1M3iyVZ8ZyNtwKdja-CiAaMlfys6ngfVKp4D_M2MsRfQ/edit?usp=sharing" target="_blank"><p>Changelog</p></a>
-        </li>
-    </ul>
-</div>
+<div id="homeHero">
 
-<div id="centralContent">
+    <div id="homeNavBar">
+        <ul id="subNav" class="navElement">
+            <li id="logo_li">
+                <img id="logoImage" src="img/logo.png">
+            </li>
+            <li>
+                <a class="noDecoration" href="https://docs.google.com/document/d/1nBUCBCd8HkAAgKCmKdjwQB39zes-ehmYB8zraeX7aYc/edit?usp=sharing" target="_blank"><p>Documentation</p></a>
+            </li>
+            <li>
+                <a onclick="summonTeamPopup();"><p>Team</p></a>
+            </li>
+            <li>
+                <a class="noDecoration" href="https://docs.google.com/document/d/1M3iyVZ8ZyNtwKdja-CiAaMlfys6ngfVKp4D_M2MsRfQ/edit?usp=sharing" target="_blank"><p>Changelog</p></a>
+            </li>
+        </ul>
+    </div>
 
-    <img src="img/backgroundMap9.jpg" class="backgroundMap"></img>
+    <div id="centralContentWrapper">
+        <div id="centralContent">
 
-    <div class="row headerRow">
-        <div class="col">
-            <div class="headerInformation">
-                <h1 class="primaryText">Digital Geographies</h1>
-                <h3 class="secondaryText mx-auto">Mapping the <span class="strikeThrough">Environmental Justice</span> Impacts of <span class="strikeThrough">Amazon</span> Data Centers and Warehouses</h3>
-            </div>
-            <div class="buttonContainer">
-                <div class="row">
-<!--                    <a href="mapper.html"><button id="documentation">Documentation</button></a>-->
-                    <a href="mapper.html">
-                        <button id="exploreMap">
-                            Explore Map
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </a>
+            <img src="img/backgroundMap9.jpg" class="backgroundMap"></img>
+
+            <div class="row headerRow">
+                <div class="col">
+                    <div class="headerInformation">
+                        <h1 class="primaryText">Digital Geographies</h1>
+                        <h3 class="secondaryText mx-auto">Mapping the <span class="strikeThrough">Environmental Justice</span> Impacts of <span class="strikeThrough">Amazon</span> Data Centers and Warehouses</h3>
+                    </div>
+                    <div class="buttonContainer">
+                        <div class="row">
+                            <!--                        <a href="mapper.html"><button id="documentation">Documentation</button></a>-->
+                            <a href="mapper.html">
+                                <button id="exploreMap">
+                                    Explore Map
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
+    <div id="articleHeader">
+        <i class="fa-solid fa-chevron-down" id="jumpingArrow"
+           onclick="scrollToArticle();">
+
+        </i>
+
+    </div>
+
+</div>
+
+<div id="article">
+    <div id="articleInner">
+
+        <div id="articleTitleSection">
+            <div id="articleLogo"></div>
+            <h1>Insert Project Title Here</h1>
+            <p>A Research Paper Exploring...
+            </p>
+            <h5>By Lauren Bridges<sup>1</sup> and Ethan McFarlin<sup>2</sup> (2024)</h5>
+        </div>
+
+        <div class="articleDivider">
+            <h1>I: Intro</h1>
+        </div>
+
+        <div class="articleContent">
+            <p>Lorem ipsum dolor sit amet. It is consectetur, adipiscing, elit, and small. Nullam at metus pretium, vulputate urna eu, placerat est. It is scelerisque taciti. Morbi et interdum ligula. Fusce a lacus tortor, feugiat quam dapibus, nam bibendum ligula. It is tincidunt primis. Aenean ut iaculis nulla, varius leo massa accumsan ligula cras. Praesent convallis gravida, gravida sleeping dolor.
+            </p>
+
+            <p>Lorem ipsum dolor sit amet, cons
+            </p>
+
+            <p>Ectetur adipiscing elit. Curabitur turpis metus, vestibulum vel pellentesque eget, dignissim nec arcu. Sed quis purus sed.</p>
+
+            <p>Ma in vestibulum sit amet. Quisque erat magna, interdum quis risus sed, condimentum rutrum libero. Duis at dictum nunc, vitae tincidunt nisi. In ut sapien vel diam laoreet accumsan. Ut suscipit tincidunt vehicula. Donec sapien turpis, dapibus at varius non, iaculis non nulla. Morbi a ornare sem. Curabitur pellentesque fringilla neque, id bibendum arcu placerat quis. Aliquam erat volutpat. Morbi feugiat urna eu turpis efficitur, non feugiat magna fermentum. Proin sed maximus sem. Nunc gravida feugiat turpis ac tincidunt. Suspendisse potenti. Duis at scelerisque elit. Curabitur nisl risus, molestie auctor pretium eget, scelerisque a turpis. Nam et libero semper, efficitur libero ac, scelerisque ex. Fusce a felis malesuada, cursus mauris vitae, blandit augue. Donec finibus bibendum ligula. In hac habitasse platea dictumst. Mauris venenatis turpis tortor. Ut feugiat magna sit amet nisl aliquet tempor. Vivamus id ligula luctus, imperdiet tortor ac, finibus libero. Donec ac maximus erat. Vestibulum malesuada sapien in quam tincidunt porttitor. Etiam feugiat magna magna, sed feugiat tortor convallis sit amet. Aenean tincidunt orci orci, id lacinia dolor auctor quis. Suspendisse vel fermentum libero, id iaculis dolor. In eu ultrices augue, vitae semper nulla. Ut a turpis ut leo.
+            </p>
+
+            <div class="articleImage">
+                <img src="img/imagePlaceholder.jpg" style="width: 50%;">
+                <h5 class="caption">Insert caption here (placeholder)
+                </h5>
+            </div>
+
+        </div>
+
+        <div class="articleDivider">
+            <h1>II: Background and Literature Review</h1>
+        </div>
+
+        <div class="articleContent">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Vestibulum lacinia arcu eget nulla. Ut a turpis ut leo.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac nisi ullamcorper, bibendum libero nec, pulvinar metus. Phasellus consequat orci eros, a bibendum mi fermentum eu. Curabitur euismod sem at ligula semper feugiat. Cras nec ex felis. Vestibulum malesuada dui eget nulla ullamcorper placerat. Nunc feugiat turpis ac tincidunt volutpat. Mauris venenatis turpis tortor. Ut feugiat magna sit amet nisl aliquet tempor. Vivamus id ligula luctus, imperdiet tortor ac, finibus libero. Donec ac maximus erat. Vestibulum malesuada sapien in quam tincidunt porttitor. Etiam feugiat magna magna, sed feugiat tortor convallis sit amet. Aenean tincidunt orci orci, id lacinia dolor auctor quis.</p>
+        </div>
+
+        <div class="articleDivider">
+            <h1>III: Methodology</h1>
+        </div>
+
+        <div class="articleContent">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula erat et velit fermentum, nec venenatis eros fermentum. Ut sit amet.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur turpis metus, vestibulum vel pellentesque eget, dignissim nec arcu. Sed quis purus sed turpis facilisis ullamcorper.</p>
+
+            <div class="articleImage">
+                <img src="img/imagePlaceholder.jpg" style="width: 50%;">
+                <h5 class="caption">Insert caption here (placeholder)</h5>
+            </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate urna at purus aliquet, at volutpat urna pulvinar. Nulla facilisi. Pellentesque et ligula vel est consequat sollicitudin. Nam auctor nisl ex. Quisque id metus eu odio facilisis lobortis. Cras congue justo et convallis faucibus. Phasellus eu tincidunte. Donec sem orci, gravida a venenatis vel, scelerisque non nisi. Suspendisse potenti. Mauris varius ligula id neque suscipit, id tincidunt risus suscipit. Duis congue, ex a interdum laoreet, justo ante aliquet ligula, id auctor purus sapien blandit lacus. Ut et suscipit nibh. Donec id lorem eu ligula elementum vulputate vitae id lectus. Duis orci dui, scelerisque id viverra vitae, viverra in eros. Sed vehicula, orci eget consequat elementum, justo metus mollis ipsum, nec hendrerit lacus purus quis sapien.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate urna at purus aliquet, at volutpat urna pulvinar. Nulla facilisi. Pellentesque et ligula vel est consequat sollicitudin. Nam auctor nisl ex. Quisque id metus eu odio facilisis lobortis. Cras congue justo et convallis faucibus. Phasellus eu tincidunte. Donec sem orci, gravida a venenatis vel, scelerisque non nisi. Suspendisse potenti. Mauris varius ligula id neque suscipit, id tincidunt risus suscipit. Duis congue, ex a interdum laoreet, justo ante aliquet ligula, id auctor purus sapien blandit lacus. Ut et suscipit nibh. Donec id lorem eu ligula elementum vulputate vitae id lectus. Duis orci dui, scelerisque id viverra vitae, viverra in eros. Sed vehicula, orci eget consequat elementum, justo metus mollis ipsum, nec hendrerit lacus purus quis sapien.</p>
+
+        </div>
+
+        <div class="articleDivider">
+            <h1>IV: ...</h1>
+        </div>
 
     </div>
 </div>
+
+
 
 <script src="js/homePage.js"></script>
 </body>
