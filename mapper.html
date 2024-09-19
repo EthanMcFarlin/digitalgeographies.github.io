@@ -109,6 +109,21 @@
                 </div>
             </div>
 
+           <h1 class="variable-header dark" id="layers-header">Layers</h1>
+
+           <div id="layers-toggle">
+               <label class="layer-checkbox dark" id="checkBox1">
+                   <input type="checkbox" id="layer1" checked onChange="updateLayers('Warehouse')">
+                   <span class="custom-checkbox"></span>
+                   Warehouses
+               </label>
+               <label class="layer-checkbox dark" id="checkBox2">
+                   <input type="checkbox" id="layer2" checked onChange="updateLayers('Data Center')">
+                   <span class="custom-checkbox"></span>
+                   Data Centers
+               </label>
+           </div>
+
            <h1 class="variable-header dark" id="color-header">Color Scheme</h1>
 
            <label class="switch" id="color-changer">
@@ -116,7 +131,9 @@
                <span class="slider round"></span>
            </label>
 
-        </div>
+
+
+       </div>
     </div>
 </div>
 

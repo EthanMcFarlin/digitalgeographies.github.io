@@ -93,6 +93,11 @@ body {
     font-size: 1.4em;
 }
 
+
+.layers-header.dark {
+    color: #212529 !important;
+}
+
 .legend {
     background: #fff;
     box-shadow: 0 0 85px rgb(90 86 130 / 10%);
@@ -109,7 +114,8 @@ body {
     height: 100vh;
     position:absolute;
     right:0;
-    width: 25%;
+    /*width: 25%;*/
+    width: 400px;
     transition: 0.05 all ease;
     overflow-y: scroll;
     padding-bottom: 30px;
@@ -408,11 +414,87 @@ select.dark {
 
 }
 
-/*#variableInfoContainer1 {*/
-/*    width: 50px;*/
-/*    height: 50px;*/
-/*}*/
+#layers-toggle {
+    display: flex;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 15px;
+}
 
-/*#distinctPopup.dark > .mapboxgl-popup-content {*/
+#checkBox1 {
+    margin-right: 50px;
+}
 
-/*}*/
+/* Style for the checkbox labels */
+.layer-checkbox {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #000;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.layer-checkbox.dark {
+    color: #fff !important;
+}
+
+/* Hide the original checkbox */
+.layer-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Customize the checkmark/indicator */
+.custom-checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.layer-checkbox:hover input ~ .custom-checkbox {
+    background-color: #e0e0e0;
+}
+
+/* Checkmark indicator */
+.custom-checkbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+#checkBox1 input:checked ~ .custom-checkbox {
+    background-color: #CE2945;
+}
+
+#checkBox2 input:checked ~ .custom-checkbox {
+    background-color: #925DFF;
+}
+
+.layer-checkbox input:checked ~ .custom-checkbox:after {
+    display: block;
+}
+
+/* Checkmark/indicator style */
+.layer-checkbox .custom-checkbox:after {
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}

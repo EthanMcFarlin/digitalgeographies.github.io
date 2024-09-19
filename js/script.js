@@ -437,7 +437,8 @@ function updateColorScheme() {
 
     let elementsToChange = ["SVI-header", "EJ-header", "legend-header", "color-header", "rounded-parent",
         "minimize", "arrow", "SVI-variables", "EJ-variables", "legend-1", "legend-2", "colorScaleSelect",
-        "histogramParent", "histogramContainer", "arrow2", "newBodyEJ", "newBodySVI"];
+        "histogramParent", "histogramContainer", "arrow2", "newBodyEJ", "newBodySVI",
+        "checkBox1", "checkBox2", "layers-header"];
 
     if (currentColorStatus) {
         elementsToChange.forEach(function (element) {
@@ -455,4 +456,28 @@ function updateColorScheme() {
     changeColorScale();
 
 
+}
+
+// ********
+// Filtering Data Centers and Warehouses
+// ********
+
+let currentWarehouseStatus = true;
+let currentDataCenterStatus = true;
+
+function updateLayers(chosenFilter) {
+    let filters = [];
+
+    if (document.getElementById('layer1').checked) {
+        filters.push('Warehouse');
+    }
+    if (document.getElementById('layer2').checked) {
+        filters.push('Data Center');
+    }
+
+    if (filters.length === 0) {
+        map.setFilter('centers-layer', ['==', 'Classification', '']); // No circles will match this filter
+    } else {
+        map.setFilter('centers-layer', ['in', 'Classification', ...filters]);
+    }
 }
