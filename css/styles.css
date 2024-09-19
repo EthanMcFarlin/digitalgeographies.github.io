@@ -163,8 +163,42 @@ body {
     outline: inherit;
     color: #202020;
     margin-left: 15px;
+    transition: 0.3s;
 
 }
+
+#home.hidden {
+    display: none;
+}
+
+#rounded-parent.parent2-minimized {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#homeButton.dark {
+    color: #fff !important;
+}
+
+#homeButton {
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    /*color: #202020;*/
+    color: #1A1A1B;
+    margin-left: 15px;
+    transition: 0.3s;
+    background: transparent;
+}
+
+#homeButton:hover, #minimize:hover, #minimize2:hover {
+    transform:scale(0.9);
+    opacity: 0.7;
+}
+
+
 
 .parent1-minimized {
     display: none;
@@ -324,7 +358,7 @@ input:checked + .slider:before {
     margin-top: 10px;
 }
 
-h1.dark, #minimize.dark, select.dark {
+h1.dark, #minimize.dark, select.dark, #homeButton.dark {
     color: #fff;
 }
 

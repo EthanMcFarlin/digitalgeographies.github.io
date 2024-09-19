@@ -91,7 +91,7 @@ body {
     position: fixed;
     top: 0;
     right: 0;
-    overflow-y: auto;
+    overflow-y: hdiden;
     padding-bottom: 100px;
     padding-top: 20px;
     z-index: 2;

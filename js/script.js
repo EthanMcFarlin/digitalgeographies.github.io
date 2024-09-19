@@ -384,6 +384,8 @@ function minimize() {
     let parent1 = document.getElementById("contentToMinimize")
     let parent2 = document.getElementById("rounded-parent")
     let arrow = document.getElementById("arrow")
+    let home = document.getElementById("home")
+
 
     menu_status = !menu_status;
 
@@ -394,12 +396,17 @@ function minimize() {
         arrow.classList.remove("fa-down-left-and-up-right-to-center")
         arrow.classList.add("fa-sliders")
 
+        home.classList.add("hidden")
+
     } else {
         parent1.classList.remove("parent1-minimized");
         parent2.classList.remove("parent2-minimized");
 
         arrow.classList.add("fa-down-left-and-up-right-to-center")
         arrow.classList.remove("fa-sliders")
+
+        home.classList.remove("hidden")
+
     }
 }
 
@@ -438,7 +445,7 @@ function updateColorScheme() {
     let elementsToChange = ["SVI-header", "EJ-header", "legend-header", "color-header", "rounded-parent",
         "minimize", "arrow", "SVI-variables", "EJ-variables", "legend-1", "legend-2", "colorScaleSelect",
         "histogramParent", "histogramContainer", "arrow2", "newBodyEJ", "newBodySVI",
-        "checkBox1", "checkBox2", "layers-header"];
+        "checkBox1", "checkBox2", "layers-header", 'homeButton'];
 
     if (currentColorStatus) {
         elementsToChange.forEach(function (element) {
