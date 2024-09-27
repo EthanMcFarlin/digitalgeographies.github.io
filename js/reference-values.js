@@ -112,3 +112,22 @@ let scaleDictionary = [
         desc: "Percentile rank of percentage of individuals with asthma"
     },
 ]
+
+let readableNames = {
+    "SPL_THEMES": "Composite social vulnerability",
+    "E_HBURD": "Housing cost burden",
+    "E_DISABL": "Population with a disability estimate",
+    "EPL_POV150": "Percentage of people below 150% poverty",
+    "EP_UNINSUR.x": "Percentage uninsured",
+    "E_MINRTY": "Minority estimate",
+    "E_AFAM": "Black/African American estimate",
+    "E_HISP": "Hispanic or latino estimate",
+    "SPL_EJI": "Summation of EJI ranks",
+    "RPL_EJI": "Percentile ranks of SPL_EJI",
+    "E_PM": "Annual days above PM2.5 standard",
+    "E_DSLPM": "Concentrations of diesel",
+    "E_IMPWTR": "Percentage with impaired watershed",
+    "RPL_EBM_DOM5": "Percentile rank of impaired water",
+    "E_TOTCR": "Probability of contracting cancer over life",
+    "EPL_ASTHMA": "Percentile rank of people with asthma"
+};

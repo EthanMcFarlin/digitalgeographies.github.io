@@ -21,7 +21,7 @@ body {
 .variable-selection {
     width: 85%;
     height: 45px;
-    padding-left: 35px;
+    padding-left: 25px;
     box-shadow: 0 0 85px rgb(90 86 130 / 20%);
     border: 0;
     margin-top:10px;
@@ -90,7 +90,7 @@ body {
     margin-left: 15px;
     margin-top: 20px;
     font-weight: 700;
-    font-size: 1.4em;
+    font-size: 1.3em;
 }
 
 
@@ -110,16 +110,26 @@ body {
 #rounded-parent {
     background: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 85px rgb(90 86 130 / 20%);
+    box-shadow: 0 0 85px rgb(90 86 130 / 1%);
     height: 100vh;
     position:absolute;
     right:0;
     /*width: 25%;*/
     width: 400px;
     transition: 0.05 all ease;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-bottom: 30px;
 }
+
+div#rounded-parent.dark.parent2-minimized, #histogramParent.dark.parent3-minimized {
+    outline: 2px solid #fff;
+}
+
+div#rounded-parent.dark.parent2-minimized > button, #histogramParent.dark.parent3-minimized > button {
+    outline: 0px !important;
+}
+
+
 
 .dot-small {
     height: 20px;
@@ -145,7 +155,7 @@ body {
 }
 
 #minimize {
-    margin-top: 12px;
+    margin-top: 25px;
 }
 
 #minimize2 {
@@ -364,7 +374,7 @@ h1.dark, #minimize.dark, select.dark, #homeButton.dark {
 
 #rounded-parent.dark {
     background: #1a1a1a;
-    box-shadow: 0 0 85px rgb(255 250 250 / 4%);
+    box-shadow: 0 0 85px rgb(255 250 250 / 2%);
 }
 
 select.dark {

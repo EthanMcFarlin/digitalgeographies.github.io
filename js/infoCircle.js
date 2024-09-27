@@ -73,8 +73,8 @@ class infoCircle {
                 if (currentVariableSelectionType === vis.selectionType) {
                     vis.tooltip
                         .style("opacity", 1)
-                        .style("left", event.pageX + 20 + "px")
-                        .style("top", event.pageY + "px")
+                        .style("left", event.pageX + -150 + "px")
+                        .style("top", event.pageY + 40 + "px")
                         .html(`
                         <div>
                             <p><span><b>Variable Description:</b><br> ${scaleDictionary[vis.variableNumber].desc}</span></p>

@@ -170,7 +170,7 @@ class doubleHistogram {
         //         .text(vis.variableName);
 
         vis.xAxisText
-            .text(vis.variableName);
+            .text(readableNames[vis.variableName]);
 
         vis.rect1 = vis.svg.selectAll("rect")
             .data(vis.bins1)
