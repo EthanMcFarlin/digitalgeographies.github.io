@@ -230,7 +230,7 @@ map.on('style.load', () => {
 
     map.addSource('centers', {
         type: 'geojson',
-        data: 'data/map_3.geojson'
+        data: 'data/map_4.geojson'
     });
 
     map.addLayer({
@@ -289,14 +289,18 @@ function calculatePercentDifference(inputValue, inputVariable) {
 map.on('click', 'centers-layer', (e) => {
     let chosenProperty = scaleDictionary[chosenSVIMeasure].name;
 
-    const coordinates = e.features[0].geometry.coordinates.slice();
-    const description = e.features[0].properties.Concatenated_Address;
-    const property = e.features[0].properties[chosenProperty];
-    const classification = e.features[0].properties.Classification;
-    const dictDesc = scaleDictionary[chosenSVIMeasure].desc;
-    const year = e.features[0].properties["Launch\nYear"];
-    const sqft = e.features[0].properties[" Total Working\nSquare \nFeet"];
-    const status = e.features[0].properties["Facility_Status"];
+    let coordinates = e.features[0].geometry.coordinates.slice();
+    let description = e.features[0].properties.Concatenated_Address;
+    let property = e.features[0].properties[chosenProperty];
+    let classification = e.features[0].properties.Classification;
+    let dictDesc = scaleDictionary[chosenSVIMeasure].desc;
+    let year = e.features[0].properties["Year"];
+    let sqft = e.features[0].properties[" Total Working\nSquare \nFeet"];
+    let status = e.features[0].properties["Facility_Status"];
+
+    if (e.features[0].properties["Year"] === "") {
+        year = "N/A"
+    }
 
     popupAppeared = true;
 
@@ -445,7 +449,7 @@ function updateColorScheme() {
     let elementsToChange = ["SVI-header", "EJ-header", "legend-header", "color-header", "rounded-parent",
         "minimize", "arrow", "SVI-variables", "EJ-variables", "legend-1", "legend-2", "colorScaleSelect",
         "histogramParent", "histogramContainer", "arrow2", "newBodyEJ", "newBodySVI",
-        "checkBox1", "checkBox2", "layers-header", 'homeButton'];
+        "checkBox1", "checkBox2", "layers-header", 'homeButton', "timelineContainer"];
 
     if (currentColorStatus) {
         elementsToChange.forEach(function (element) {
@@ -487,4 +491,16 @@ function updateLayers(chosenFilter) {
     } else {
         map.setFilter('centers-layer', ['in', 'Classification', ...filters]);
     }
+
+    const showWarehouses = document.getElementById('layer1').checked;
+    const showDataCenters = document.getElementById('layer2').checked;
+
+    // Determine which keys (stack layers) to include
+    let inputKeys = [];
+    if (showWarehouses) inputKeys.push("Warehouses");
+    if (showDataCenters) inputKeys.push("Data_Centers");
+
+    // Update the timeline visualization with the filtered keys and data
+    myTimeline.updateVis(inputKeys);
+
 }

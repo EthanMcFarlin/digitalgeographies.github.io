@@ -123,6 +123,11 @@ body {
 
 div#rounded-parent.dark.parent2-minimized, #histogramParent.dark.parent3-minimized {
     outline: 2px solid #fff;
+
+}
+
+div#rounded-parent.dark.parent2-minimized > button {
+    margin-top: 13px;
 }
 
 div#rounded-parent.dark.parent2-minimized > button, #histogramParent.dark.parent3-minimized > button {
@@ -542,3 +547,22 @@ select.dark {
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
+
+.info-container {
+    z-index: 100 !important;
+
+
+}
+
+#timelineContainer {
+    width: 90%;
+    height: 200px;
+    margin-top: 10px;
+    color: #212529;
+
+}
+
+#timelineContainer.dark {
+    color: #fff !important;
+}
+
