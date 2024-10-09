@@ -93,6 +93,13 @@ function updateEJMeasure(){
 
     myDoubleHistogram.updateVis();
 
+    const showWarehouses = document.getElementById('layer1').checked;
+    const showDataCenters = document.getElementById('layer2').checked;
+    let inputKeys2 = [];
+    if (showWarehouses) inputKeys2.push("Warehouse");
+    if (showDataCenters) inputKeys2.push("Data Center");
+    myScatterplot.updateVis(inputKeys2);
+
     changeColorScale();
 
     myInfoCircle2.updateVis();
@@ -114,6 +121,13 @@ function updateSVIMeasure(){
     }
 
     myDoubleHistogram.updateVis();
+
+    const showWarehouses = document.getElementById('layer1').checked;
+    const showDataCenters = document.getElementById('layer2').checked;
+    let inputKeys2 = [];
+    if (showWarehouses) inputKeys2.push("Warehouse");
+    if (showDataCenters) inputKeys2.push("Data Center");
+    myScatterplot.updateVis(inputKeys2);
 
     changeColorScale();
 
@@ -449,7 +463,7 @@ function updateColorScheme() {
     let elementsToChange = ["SVI-header", "EJ-header", "legend-header", "color-header", "rounded-parent",
         "minimize", "arrow", "SVI-variables", "EJ-variables", "legend-1", "legend-2", "colorScaleSelect",
         "histogramParent", "histogramContainer", "arrow2", "newBodyEJ", "newBodySVI",
-        "checkBox1", "checkBox2", "layers-header", 'homeButton', "timelineContainer"];
+        "checkBox1", "checkBox2", "layers-header", 'homeButton', "timelineContainer", "scatterplotContainer"];
 
     if (currentColorStatus) {
         elementsToChange.forEach(function (element) {
@@ -500,7 +514,15 @@ function updateLayers(chosenFilter) {
     if (showWarehouses) inputKeys.push("Warehouses");
     if (showDataCenters) inputKeys.push("Data_Centers");
 
+    let inputKeys2 = [];
+    if (showWarehouses) inputKeys2.push("Warehouse");
+    if (showDataCenters) inputKeys2.push("Data Center");
+
+
     // Update the timeline visualization with the filtered keys and data
     myTimeline.updateVis(inputKeys);
+    myScatterplot.updateVis(inputKeys2);
+
+
 
 }

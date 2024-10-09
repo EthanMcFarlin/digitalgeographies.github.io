@@ -551,18 +551,30 @@ select.dark {
 .info-container {
     z-index: 100 !important;
 
-
 }
 
 #timelineContainer {
-    width: 90%;
+    width: 95%;
     height: 200px;
     margin-top: 10px;
     color: #212529;
-
 }
 
 #timelineContainer.dark {
     color: #fff !important;
 }
 
+#scatterplotContainer {
+    height: 800px;
+    margin-top: 10px;
+    color: #212529;
+}
+
+#scatterplotContainer.dark {
+    color: #fff !important;
+    font-family: Montserrat;
+}
+
+.scatterText {
+    fill: #fff !important;
+}

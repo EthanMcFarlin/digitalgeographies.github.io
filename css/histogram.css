@@ -86,3 +86,19 @@
     height: 50px !important;
     bottom: 10px;
 }
+
+.scatterTooltip {
+    position: absolute;
+    text-align: left;
+    background: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    font: 9pt Montserrat;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    opacity: 0;
+    /*border-top: 8px solid #E8F0FC;*/
+}
