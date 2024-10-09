@@ -407,10 +407,12 @@ body {
 
 }
 
-.articleContent > p {
+.articleContent > p, .articleContent > ul > li {
     font-family: "Roboto";
     font-size: 18px;
 }
+
+
 
 .articleImage {
     text-align: center;
