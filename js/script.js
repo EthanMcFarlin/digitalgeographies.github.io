@@ -463,7 +463,9 @@ function updateColorScheme() {
     let elementsToChange = ["SVI-header", "EJ-header", "legend-header", "color-header", "rounded-parent",
         "minimize", "arrow", "SVI-variables", "EJ-variables", "legend-1", "legend-2", "colorScaleSelect",
         "histogramParent", "histogramContainer", "arrow2", "newBodyEJ", "newBodySVI",
-        "checkBox1", "checkBox2", "layers-header", 'homeButton', "timelineContainer", "scatterplotContainer"];
+        "checkBox1", "checkBox2", "layers-header", 'homeButton', "timelineContainer", "scatterplotContainer",
+        "state-header"
+    ];
 
     if (currentColorStatus) {
         elementsToChange.forEach(function (element) {
