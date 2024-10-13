@@ -4,7 +4,7 @@ class Timeline {
         const vis = this;
         vis.parentElement = parentElement;
         vis.data = data;
-        vis.displayData = data; // Initialize displayData for consistency
+        vis.displayData = data; // Initialize displayData with all data
 
         vis.initVis();
     }
@@ -41,9 +41,11 @@ class Timeline {
             .call(vis.xAxis);
 
         vis.yAxis = d3.axisLeft(vis.y);
-        vis.svg.append("g")
+        vis.yAxisGroup = vis.svg.append("g") // Store the y-axis group to update it later
+            .attr("class", "y-axis")
             .call(vis.yAxis);
 
+        // Initialize brush
         vis.brush = d3.brushX()
             .extent([[0, 0], [vis.width, vis.height]])
             .on("brush end", event => vis.brushed(event));
@@ -62,19 +64,27 @@ class Timeline {
     updateVis(receivedKeys) {
         const vis = this;
 
-        // Stacking process with received keys
+        if (receivedKeys.length === 0) {
+            vis.svg.selectAll(".layer").remove();
+            return;
+        }
+
+        // Recalculation of the stack based on filtered keys
         let stack = d3.stack().keys(receivedKeys);
         let stackedData = stack(vis.displayData);
 
-        vis.color.domain(receivedKeys);
-
-        // Update scales with filtered data
-        vis.x.domain(vis.displayData.map(d => d.Year));
+        // Update the y-axis scale domain based on the selected categories
         vis.y.domain([0, d3.max(vis.displayData, d =>
             d3.sum(receivedKeys.map(key => d[key]))
         )]);
 
-        // Update layers based on the filtered data and keys
+        // Update y-axis to reflect new domain
+        vis.yAxisGroup // Use the stored y-axis group for updates
+            .transition()
+            .duration(500)
+            .call(vis.yAxis.scale(vis.y));
+
+        // Update data on the timeline
         let layers = vis.svg.selectAll(".layer")
             .data(stackedData, d => d.key);
 
@@ -91,7 +101,7 @@ class Timeline {
             .attr("y", vis.height)
             .attr("height", 0)
             .attr("width", vis.x.bandwidth())
-            .merge(rects) // Merge with existing rectangles
+            .merge(rects)
             .transition().duration(1000)
             .attr("x", d => vis.x(d.data.Year))
             .attr("y", d => vis.y(d[1]))
@@ -104,24 +114,22 @@ class Timeline {
         const vis = this;
         const selection = event.selection;
         if (!selection) {
-            // Clear the filter if no brushing selection
             map.setFilter('centers-layer', null);
             return;
         }
 
-        // Get the boundaries of the selection
+        // Get the selection boundaries and map them to data indices
         const [x0, x1] = selection;
-        const yearData = vis.displayData.map(d => d.Year);
         const step = vis.x.step();
+        const yearData = vis.displayData.map(d => d.Year);
 
-        // Determine selected years
         const rangeStart = Math.floor(x0 / step);
         const rangeEnd = Math.floor(x1 / step);
 
         const year0 = yearData[Math.max(0, Math.min(rangeStart, yearData.length - 1))];
         const year1 = yearData[Math.max(0, Math.min(rangeEnd, yearData.length - 1))];
 
-        // Determine which keys (stack layers) are currently visible
+        // Determine the filter criteria based on the checkboxes
         const showWarehouses = document.getElementById('layer1').checked;
         const showDataCenters = document.getElementById('layer2').checked;
 
@@ -137,7 +145,6 @@ class Timeline {
                 typeFilter
             ]);
         } else {
-            // As a fallback, default to applying no specific year range filter
             map.setFilter('centers-layer', null);
         }
     }
