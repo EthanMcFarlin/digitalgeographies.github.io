@@ -282,7 +282,8 @@ let scaleDictionary = {
     "E_TOTCR": {
         "name": "E_TOTCR",
         "min": 15.950000,
-        "max": 596.460000,
+        // "max": 596.460000,
+        "max": 100,
         "avg": 31.760822,
         "desc": "Total cancer risk score"
     },
