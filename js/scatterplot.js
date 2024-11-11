@@ -172,13 +172,34 @@ class Scatterplot {
                     .attr('stroke', 'black');
 
                 const stateAbbr = vis.stateAbbreviations[d.STATE];
+
+                // Get tooltip dimensions
+                const tooltipWidth = 150;  // Estimated width of the tooltip
+                const offset = 20; // Base offset
+                const pageWidth = document.documentElement.clientWidth;
+                const pageHeight = document.documentElement.clientHeight;
+                const tooltipHeight = 40; // Estimated height of the tooltip
+
+                let tooltipX = event.pageX + offset;
+                let tooltipY = event.pageY;
+
+                // Adjust horizontal position if it's near the right edge
+                if (tooltipX + tooltipWidth > pageWidth) {
+                    tooltipX = event.pageX - tooltipWidth - offset;
+                }
+
+                // Adjust vertical position if it's near the bottom edge
+                if (tooltipY + tooltipHeight > pageHeight) {
+                    tooltipY = event.pageY - tooltipHeight;
+                }
+
                 vis.tooltip
                     .style("opacity", 1)
-                    .style("left", event.pageX + 20 + "px")
-                    .style("top", event.pageY + "px")
+                    .style("left", tooltipX + "px")
+                    .style("top", tooltipY + "px")
                     .html(`
-                        <div>${vis.variableName}: <b>${d[vis.variableName]}</b><br>State: <b>${stateAbbr || d.STATE}</b></div>
-                    `);
+            <div>${vis.variableName}: <b>${d[vis.variableName]}</b><br>State: <b>${stateAbbr || d.STATE}</b></div>
+        `);
             })
             .on('mouseout', function (event, d) {
                 d3.select(this)

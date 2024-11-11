@@ -78,7 +78,7 @@ spinGlobe();
 // Variable Selection
 // ********
 
-let chosenSVIMeasure = 0;
+let chosenSVIMeasure = "SPL_THEMES";
 
 function updateEJMeasure(){
     chosenSVIMeasure = document.getElementById("EJ-variables").value;

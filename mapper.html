@@ -39,29 +39,107 @@
         <a href="index.html"><button class="dark" id="homeButton"><i id="home" class="fa-solid fa-house"></i></button></a>
         <div id="contentToMinimize">
             <h1 class="variable-header dark" id="SVI-header">Social Vulnerability <span id="variableInfoContainer1"></span> </h1>
+
             <select class="variable-selection dark" id="SVI-variables" onchange="updateSVIMeasure()">
                 <option selected>Switch to an SVI variable</option>
-                <option value="0" selected>Composite social vulnerability (SPL_THEMES)</option>
-                <option value="1">Housing cost burden (HBURD)</option>
-                <option value="2">Population with a disability estimate (E_DISABL)</option>
-                <option value="3">Percentage people below 150% poverty (EPL_POV150)</option>
-                <option value="4">Percentage uninsured (EP_UNINSUR)</option>
-                <option value="5">Minority estimate (E_MINRTY)</option>
-                <option value="6">Black/African American estimate (E_AFAM)</option>
-                <option value="7">Hispanic or latino estimate (E_HISP)</option>
+
+                <option disabled>| Composite of Themes | </option>
+                <option value="SPL_THEMES">Composite social vulnerability, sum (SPL_THEMES)</option>
+                <option value="RPL_THEMES">Composite social vulnerability, percentile (RPL_THEMES)</option>
+
+                <option disabled>| Theme 1: Socioeconomic Status | </option>
+                <option value="SPL_THEME1">Composite: theme 1, sum (SPL_THEME1)</option>
+                <option value="RPL_THEME1">Composite: theme 1, percentile (RPL_THEME1)</option>
+                <option value="EPL_POV150">Percentage below 150% poverty (EPL_POV150)</option>
+                <option value="E_UNEMP">Unemployment (E_UNEMP)</option>
+                <option value="EPL_UNEMP">Unemployment, percentile (EPL_UNEMP)</option>
+                <option value="E_SNGPNT">Single parent household (E_SNGPNT)</option>
+                <option value="E_HBURD">Housing Burdened Lower-Income (E_HBURD)</option>
+                <option value="EPL_HBURD">Housing Burdened Lower-Income, percentile (EPL_HBURD)</option>
+                <option value="E_CROWD">Crowded Households (E_CROWD)</option>
+                <option value="E_UNINSUR">Lack of Health Insurance (E_UNINSUR)</option>
+                <option value="EP_NOINT">Lack of Broadband Access, percentage (EP_NOINT)</option>
+
+                <option disabled>| Theme 2: Household Characteristics | </option>
+                <option value="SPL_THEME2">Composite: theme 2, sum (SPL_THEME2)</option>
+                <option value="RPL_THEME2">Composite: theme 2, percentile (RPL_THEME2)</option>
+                <option value="EP_AGE65">Age 65 and Older (EP_AGE65)</option>
+                <option value="E_AGE17">Age 17 and Younger (E_AGE17)</option>
+                <option value="EPL_DISABL">Civilian with a Disability (EPL_DISABL)</option>
+                <option value="E_NOVEH">No Vehicle Estimate (E_NOVEH)</option>
+                <option value="E_LIMENG">Speaks English "Less than Well" (E_LIMENG)</option>
+
+                <option disabled>| Theme 3: Racial/Ethnic Minority Status | </option>
+                <option value="SPL_THEME3">Composite: theme 3, sum (SPL_THEME3)</option>
+                <option value="RPL_THEME3">Composite: theme 3, percentile (RPL_THEME3)</option>
+                <option value="EPL_MINRTY">Minority Status, percentile (EPL_MINRTY)</option>
+                <option value="EP_TWOMORE">Percentile of persons of two or more races (EP_TWOMORE)</option>
+                <option value="EP_AFAM">African American population, percentage (EP_AFAM)</option>
+                <option value="EP_ASIAN">Asian population (EP_ASIAN)</option>
+                <option value="EP_HISP">Hispanic or Latino population (EP_HISP)</option>
+
+                <option disabled>| Theme 4: Housing Type & Transportation | </option>
+                <option value="SPL_THEME4">Composite: theme 4, sum (SPL_THEME4)</option>
+                <option value="RPL_THEME4">Composite: theme 4, percentile (RPL_THEME4)</option>
+                <option value="EPL_GROUPQ">Group Quarters, percentile (EPL_GROUPQ)</option>
+                <option value="EPL_MUNIT">Housing Structures with 10+ Units, percentile (EPL_MUNIT)</option>
+                <option value="EPL_MOBILE">Mobile Homes, percentile (EPL_MOBILE)</option>
             </select>
+
             <h1 class="variable-header dark" id="EJ-header">Environmental Justice<span id="variableInfoContainer2"></span></h1>
+
             <select class="variable-selection dark" id="EJ-variables" onchange="updateEJMeasure()">
                 <option selected>Switch to an EJI variable</option>
-                <option value="8">Summation of env. justice index measures (SPL_EJI)</option>
-                <option value="9">Percentile ranks of SPL_EJI composite (RPL_EJI) </option>
-                <option value="10">Annual days above PM2.5 standard (E_PM)</option>
-                <option value="11">Concentration of diesel (E_DSLPM)</option>
-                <option value="12">Percentage with impaired watershed (E_IMPWTR)</option>
-                <option value="13">Percentile rank of impaired water (RPL_EBM_DOM5)</option>
-                <option value="14">Probability of contracting cancer over life (E_TOTCR)</option>
-                <option value="15">Percentile rank of people with asthma (EPL_ASTHMA)</option>
+
+                <option disabled>| Composite of Themes | </option>
+                <option value="SPL_EJI">Composite env. justice index, sum (SPL_EJI)</option>
+                <option value="RPL_EJI">Composite env. justice index, percentile (RPL_EJI)</option>
+                <option value="RPL_EBM">Ranking of environmental burdens (RPL_EBM)</option>
+
+                <option disabled>| Theme 1: Air Pollution | </option>
+                <option value="SPL_EBM_THEME1">Composite: air pollution, sum (SPL_EBM_THEME1)</option>
+                <option value="RPL_EBM_DOM1">Composite: air pollution, percentile (RPL_EBM_DOM1)</option>
+                <option value="E_OZONE">Ozone (E_OZONE)</option>
+                <option value="E_PM">PM2.5 (E_PM)</option>
+                <option value="E_DSLPM">Diesel Particulate Matter (E_DSLPM)</option>
+                <option value="E_TOTCR">Air Toxics Cancer Risk (E_TOTCR)</option>
+
+                <option disabled>| Theme 2: Potentially Hazardous & Toxic Sites | </option>
+                <option value="SPL_EBM_THEME2">Composite: hazardous sites, sum (SPL_EBM_THEME2)</option>
+                <option value="RPL_EBM_DOM2">Composite: hazardous sites, percentile (RPL_EBM_DOM2)</option>
+                <option value="E_NPL">National Priority List Sites (E_NPL)</option>
+                <option value="E_TRI">Toxic Release Inventory Sites (E_TRI)</option>
+                <option value="E_TSD">Treatment, Storage, and Disposal Sites (E_TSD)</option>
+                <option value="EPL_RMP">Risk Management Plan Sites (EPL_RMP)</option>
+
+                <option disabled>| Theme 3: Built Environment | </option>
+                <option value="SPL_EBM_THEME3">Composite: built environment, sum (SPL_EBM_THEME3)</option>
+                <option value="RPL_EBM_DOM3">Composite: built environment, percentile (RPL_EBM_DOM3)</option>
+                <option value="E_PARK">Recreational Parks (E_PARK)</option>
+                <option value="E_HOUAGE">Houses Built Pre-1980 (E_HOUAGE)</option>
+
+                <option disabled>| Theme 4: Transportation Infrastructure | </option>
+                <option value="SPL_EBM_THEME4">Composite: transport infra, sum (SPL_EBM_THEME4)</option>
+                <option value="RPL_EBM_DOM4">Composite: transport infra, percentile (RPL_EBM_DOM4)</option>
+                <option value="E_ROAD">High-Volume Roads (E_ROAD)</option>
+                <option value="E_RAIL">Railways (E_RAIL)</option>
+                <option value="E_AIRPRT">Airports (E_AIRPRT)</option>
+
+                <option disabled>| Theme 5: Water Pollution | </option>
+                <option value="SPL_EBM_THEME5">Composite: water pollution, sum (SPL_EBM_THEME5)</option>
+                <option value="RPL_EBM_DOM5">Composite: water pollution, percentile (RPL_EBM_DOM5)</option>
+                <option value="E_IMPWTR">Impaired Surface Water (E_IMPWTR)</option>
+
+                <option disabled>| Theme 6: Health Vulnerability | </option>
+                <option value="SPL_SVM">Composite: health vulnerability, sum (SPL_SVM)</option>
+                <option value="RPL_SVM">Composite: health vulnerability, percentile (RPL_SVM)</option>
+<!--                <option value="F_ASTHMA">Asthma (F_ASTHMA)</option>-->
+                <option value="EP_CANCER">Cancer (EP_CANCER)</option>
+<!--                <option value="F_BPHIGH">High Blood Pressure (F_BPHIGH)</option>-->
+                <option value="EPL_DIABETES">Diabetes (EPL_DIABETES)</option>
             </select>
+
+
             <h1 class="variable-header dark" id="legend-header">Legend</h1>
             <div class="row" id="legend-container">
                 <div class="col legend dark" style="margin-right: 30px;" id="legend-1">

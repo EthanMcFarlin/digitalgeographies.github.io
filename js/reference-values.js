@@ -1,117 +1,462 @@
-let scaleDictionary = [
-    {
+let scaleDictionary = {
+    "SPL_THEMES": {
         name: "SPL_THEMES",
-        min: 0.99,
-        max: 13.57,
-        avg: 7.674277,
-        desc: "Sum of series themes (1: Socioeconomic Status, 2: Household Characteristics, 3: Racial and Ethnic Minority Status, 4: Housing Type / Transportation)"
+        min: 1.468700,
+        max: 13.552300,
+        avg: 7.763875,
+        desc: "Sum of all themes contributing to social and demographic vulnerability"
     },
-    {
-        name: "E_HBURD",
-        min: 0,
-        max: 1644,
-        avg: 399.3317,
-        desc: "Housing cost burdened occupied housing units with annual income less than $75,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS"
+    "RPL_THEMES": {
+        name: "RPL_THEMES",
+        min: 0.000200,
+        max: 0.999800,
+        avg: 0.508677,
+        desc: "Ranked percentile of SPL_THEMES"
     },
-    {
-        name: "E_DISABL",
-        min: 0,
-        max: 1552,
-        avg: 489.3169,
-        desc: "Civilian noninstitutionalized population with a disability estimate, 2014-2018 ACS"
+    "SPL_THEME3": {
+        name: "SPL_THEME3",
+        min: 0.000000,
+        max: 0.995400,
+        avg: 0.597757,
+        desc: "Score for Theme 3: Racial and Ethnic Minority Status"
     },
-    {
+    "RPL_THEME3": {
+        name: "RPL_THEME3",
+        min: 0.000000,
+        max: 0.995400,
+        avg: 0.597757,
+        desc: "Ranked percentile score for Theme 3"
+    },
+    "EPL_MINRTY": {
+        name: "EPL_MINRTY",
+        min: 0.000000,
+        max: 0.995400,
+        avg: 0.597757,
+        desc: "Percentile of minority population"
+    },
+    "EP_TWOMORE": {
+        name: "EP_TWOMORE",
+        min: 0.000000,
+        max: 18.500000,
+        avg: 3.677939,
+        desc: "Percentage of people identifying with two or more races"
+    },
+    "EP_AFAM": {
+        name: "EP_AFAM",
+        min: 0.000000,
+        max: 99.100000,
+        avg: 13.835091,
+        desc: "Percentage of African American population"
+    },
+    "EP_ASIAN": {
+        name: "EP_ASIAN",
+        min: 0.000000,
+        max: 84.500000,
+        avg: 8.513455,
+        desc: "Percentage of Asian population"
+    },
+    "EP_HISP": {
+        name: "EP_HISP",
+        min: 0.000000,
+        max: 96.500000,
+        avg: 22.242364,
+        desc: "Percentage of Hispanic population"
+    },
+    "SPL_THEME1": {
+        name: "SPL_THEME1",
+        min: 0.188300,
+        max: 4.826300,
+        avg: 2.419971,
+        desc: "Score for Theme 1: Socioeconomic Status"
+    },
+    "RPL_THEME1": {
+        name: "RPL_THEME1",
+        min: 0.001800,
+        max: 0.999300,
+        avg: 0.480355,
+        desc: "Ranked percentile score for Theme 1"
+    },
+    "EPL_POV150": {
         name: "EPL_POV150",
-        min: 0,
-        max: 0.9995,
-        avg: 0.4998178,
-        desc: "Percentile percentage of persons below 150% poverty estimate"
+        min: 0.000000,
+        max: 0.996900,
+        avg: 0.435223,
+        desc: "Percentile of population below 150% poverty"
     },
-    {
-        name: "EP_UNINSUR.x",
-        min: 0,
-        max: 70,
-        avg: 8.805836,
-        desc: "Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS"
+    "E_UNEMP": {
+        name: "E_UNEMP",
+        min: 0.000000,
+        max: 912.000000,
+        avg: 122.350303,
+        desc: "Number of unemployed civilians (age 16+)"
     },
-    {
-        name: "E_MINRTY",
-        min: 0,
-        max: 12602,
-        avg: 1559.891,
-        desc: "Minority (Hispanic or Latino (of any race); Black and African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Two or More Races; Other Races) estimate, 2016-2020 ACS"
+    "EPL_UNEMP": {
+        name: "EPL_UNEMP",
+        min: 0.000000,
+        max: 0.997500,
+        avg: 0.473968,
+        desc: "Percentile of unemployment rate"
     },
-    {
-        name: "E_AFAM",
-        min: 0,
-        max: 4500,
-        avg: 478.1086,
-        desc: "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS"
+    "E_SNGPNT": {
+        name: "E_SNGPNT",
+        min: 0.000000,
+        max: 1323.000000,
+        avg: 110.855758,
+        desc: "Number of single-parent households"
     },
-    {
-        name: "E_HISP",
-        min: 0,
-        max: 7334,
-        avg: 710.9013,
-        desc: "Adjunct variable – Hispanic or Latino persons estimate, 2016-2020 ACS"
+    "EPL_HBURD": {
+        name: "EPL_HBURD",
+        min: 0.000000,
+        max: 0.999800,
+        avg: 0.496108,
+        desc: "Percentile of households with high cost burden"
     },
-    {
+    "E_HBURD": {
+        name: "E_HBURD",
+        min: 0.000000,
+        max: 1947.000000,
+        avg: 447.379394,
+        desc: "Number of households with high cost burden"
+    },
+    "E_CROWD": {
+        name: "E_CROWD",
+        min: 0.000000,
+        max: 857.000000,
+        avg: 65.753939,
+        desc: "Number of overcrowded households"
+    },
+    "E_UNINSUR": {
+        name: "E_UNINSUR",
+        min: 0.000000,
+        max: 3241.000000,
+        avg: 403.412121,
+        desc: "Number of uninsured individuals"
+    },
+    "EP_NOINT": {
+        name: "EP_NOINT",
+        min: 0.000000,
+        max: 100.000000,
+        avg: 9.633879,
+        desc: "Percent of households without internet"
+    },
+    "SPL_THEME2": {
+        name: "SPL_THEME2",
+        min: 0.004000,
+        max: 4.144300,
+        avg: 2.437023,
+        desc: "Score for Theme 2: Household Characteristics"
+    },
+    "RPL_THEME2": {
+        name: "RPL_THEME2",
+        min: 0.000300,
+        max: 0.998200,
+        avg: 0.483622,
+        desc: "Ranked percentile score for Theme 2"
+    },
+    "EP_AGE65": {
+        name: "EP_AGE65",
+        min: 0.000000,
+        max: 76.800000,
+        avg: 14.194667,
+        desc: "Percentage of population aged 65 and older"
+    },
+    "E_AGE17": {
+        name: "E_AGE17",
+        min: 0.000000,
+        max: 10142.000000,
+        avg: 1100.708485,
+        desc: "Number of people aged 17 or younger"
+    },
+    "EPL_DISABL": {
+        name: "EPL_DISABL",
+        min: 0.000000,
+        max: 0.999700,
+        avg: 0.409837,
+        desc: "Percentile of disabled population"
+    },
+    "E_NOVEH": {
+        name: "E_NOVEH",
+        min: 0.000000,
+        max: 1588.000000,
+        avg: 104.218182,
+        desc: "Number of households without a vehicle"
+    },
+    "E_LIMENG": {
+        name: "E_LIMENG",
+        min: 0.000000,
+        max: 2455.000000,
+        avg: 217.664848,
+        desc: "Number of persons with limited English proficiency"
+    },
+    "SPL_THEME4": {
+        name: "SPL_THEME4",
+        min: 0.000000,
+        max: 4.438800,
+        avg: 2.309124,
+        desc: "Score for Theme 4: Housing Type/Transportation"
+    },
+    "RPL_THEME4": {
+        name: "RPL_THEME4",
+        min: 0.000000,
+        max: 0.999700,
+        avg: 0.519722,
+        desc: "Ranked percentile score for Theme 4"
+    },
+    "EPL_GROUPQ": {
+        name: "EPL_GROUPQ",
+        min: 0.000000,
+        max: 0.996100,
+        avg: 0.391807,
+        desc: "Percentile of population in group quarters"
+    },
+    "EPL_MUNIT": {
+        name: "EPL_MUNIT",
+        min: 0.000000,
+        max: 0.999500,
+        avg: 0.531867,
+        desc: "Percentile of housing units with multiple units"
+    },
+    "EPL_MOBILE": {
+        name: "EPL_MOBILE",
+        min: 0.000000,
+        max: 0.999900,
+        avg: 0.412765,
+        desc: "Percentile of mobile homes"
+    },
+    "SPL_EJI": {
         name: "SPL_EJI",
-        min: 0,
-        max: 3,
-        avg: 1.325396,
-        desc: "Summation of the HVM, EBI, and SVI module percentile ranks"
+        min: 0.041400,
+        max: 2.791300,
+        avg: 1.360869,
+        desc: "Environmental Justice Index score"
     },
-    {
+    "RPL_EJI": {
         name: "RPL_EJI",
-        min: 0,
-        max: 1,
-        avg: 0.5,
-        desc: "Percentile ranks of SPL_EJI"
+        min: 0.001200,
+        max: 0.998700,
+        avg: 0.517104,
+        desc: "Ranked percentile score of SPL_EJI"
     },
-    {
+    "RPL_EBM": {
+        name: "RPL_EBM",
+        min: 0.003600,
+        max: 0.999800,
+        avg: 0.673793,
+        desc: "Rank of the Environmental Burden Module"
+    },
+    "SPL_EBM_THEME1": {
+        name: "SPL_EBM_THEME1",
+        min: 0.061500,
+        max: 3.793600,
+        avg: 2.141539,
+        desc: "Environmental Burden Module Theme 1 score: Pollution Exposure"
+    },
+    "RPL_EBM_DOM1": {
+        name: "RPL_EBM_DOM1",
+        min: 0.009900,
+        max: 0.999400,
+        avg: 0.569900,
+        desc: "Ranked percentile score of EBM Theme 1"
+    },
+    "E_OZONE": {
+        name: "E_OZONE",
+        min: 0.000000,
+        max: 72.330000,
+        avg: 3.378382,
+        desc: "Average ozone concentration"
+    },
+    "E_PM": {
         name: "E_PM",
-        min: 3.25,
-        max: 16.05,
-        avg: 8.950115,
-        desc: "Annual mean days above PM2.5 regulatory standard - 3-year average"
+        min: 5.030000,
+        max: 15.710000,
+        avg: 9.129921,
+        desc: "Average PM2.5 concentration"
     },
-    {
+    "E_DSLPM": {
         name: "E_DSLPM",
-        min: 0.01,
-        max: 2.5,
-        avg: 0.4888175,
-        desc: "Ambient concentrations of diesel PM/m3"
+        min: 0.050000,
+        max: 3.180000,
+        avg: 0.547679,
+        desc: "Ambient diesel PM concentration"
     },
-    {
-        name: "E_IMPWTR",
-        min: 0,
-        max: 100,
-        avg: 49.99622,
-        desc: "Percent of tract that intersects an impaired/impacted watershed at the HUC12 level"
-    },
-    {
-        name: "RPL_EBM_DOM5",
-        min: 0,
-        max: 0.9093,
-        avg: 0.4889685,
-        desc: "Percentile rank of domain consisting of impaired water bodies"
-    },
-    {
+    "E_TOTCR": {
         name: "E_TOTCR",
-        min: 8.77,
-        max: 80,
-        avg: 31.76082,
-        desc: "The probability of contracting cancer over the course of a lifetime, assuming continuous exposure"
+        min: 15.950000,
+        max: 596.460000,
+        avg: 33.345273,
+        desc: "Total cancer risk score"
     },
-    {
-        name: "EPL_ASTHMA",
-        min: 0,
-        max: 1,
-        avg: 0.4900416,
-        desc: "Percentile rank of percentage of individuals with asthma"
+    "SPL_EBM_THEME2": {
+        name: "SPL_EBM_THEME2",
+        min: 0.000000,
+        max: 3.776300,
+        avg: 1.569310,
+        desc: "Environmental Burden Module Theme 2 score: Prevalence of Polluting Facilities"
     },
-]
+    "RPL_EBM_DOM2": {
+        name: "RPL_EBM_DOM2",
+        min: 0.000000,
+        max: 0.998900,
+        avg: 0.694038,
+        desc: "Ranked percentile score of EBM Theme 2"
+    },
+    "E_NPL": {
+        name: "E_NPL",
+        min: 0.000000,
+        max: 100.000000,
+        avg: 4.515673,
+        desc: "Proximity to National Priority List sites"
+    },
+    "E_TRI": {
+        name: "E_TRI",
+        min: 0.000000,
+        max: 100.000000,
+        avg: 52.954182,
+        desc: "Proximity to Toxic Release Inventory sites"
+    },
+    "E_TSD": {
+        name: "E_TSD",
+        min: 0.000000,
+        max: 100.000000,
+        avg: 5.272412,
+        desc: "Proximity to Treatment, Storage, and Disposal sites"
+    },
+    "EPL_RMP": {
+        name: "EPL_RMP",
+        min: 0.000000,
+        max: 0.981100,
+        avg: 0.542701,
+        desc: "Proximity to Risk Management Plan sites"
+    },
+    "SPL_EBM_THEME3": {
+        name: "SPL_EBM_THEME3",
+        min: 0.409200,
+        max: 2.601700,
+        avg: 1.463944,
+        desc: "Environmental Burden Module Theme 3 score: Land Use"
+    },
+    "RPL_EBM_DOM3": {
+        name: "RPL_EBM_DOM3",
+        min: 0.000100,
+        max: 0.997000,
+        avg: 0.421438,
+        desc: "Ranked percentile score of EBM Theme 3"
+    },
+    "E_PARK": {
+        name: "E_PARK",
+        min: 0.000000,
+        max: 100.000000,
+        avg: 52.159958,
+        desc: "Proximity to parks"
+    },
+    "E_HOUAGE": {
+        name: "E_HOUAGE",
+        min: 0.000000,
+        max: 100.000000,
+        avg: 40.998030,
+        desc: "Average age of housing"
+    },
+    "SPL_EBM_THEME4": {
+        name: "SPL_EBM_THEME4",
+        min: 0.000000,
+        max: 2.549300,
+        avg: 1.337742,
+        desc: "Environmental Burden Module Theme 4 score: Infrastructure"
+    },
+    "RPL_EBM_DOM4": {
+        name: "RPL_EBM_DOM4",
+        min: 0.000000,
+        max: 0.998700,
+        avg: 0.632447,
+        desc: "Ranked percentile score of EBM Theme 4"
+    },
+    "E_ROAD": {
+        name: "E_ROAD",
+        min: 0.000000,
+        max: 100.000000,
+        avg: 58.700194,
+        desc: "Proximity to major roads"
+    },
+    "E_RAIL": {
+        name: "E_RAIL",
+        min: 0.000000,
+        max: 100.000000,
+        avg: 51.372642,
+        desc: "Proximity to railway lines"
+    },
+    "E_AIRPRT": {
+        name: "E_AIRPRT",
+        min: 0.000000,
+        max: 100.000000,
+        avg: 11.230606,
+        desc: "Proximity to airports"
+    },
+    "SPL_EBM_THEME5": {
+        name: "SPL_EBM_THEME5",
+        min: 0.000000,
+        max: 0.909300,
+        avg: 0.507759,
+        desc: "Environmental Burden Module Theme 5 score: Water Quality"
+    },
+    "RPL_EBM_DOM5": {
+        name: "RPL_EBM_DOM5",
+        min: 0.000000,
+        max: 0.909300,
+        avg: 0.507753,
+        desc: "Ranked percentile score of EBM Theme 5"
+    },
+    "E_IMPWTR": {
+        name: "E_IMPWTR",
+        min: 0.000000,
+        max: 100.000000,
+        avg: 52.008867,
+        desc: "Intersection with impaired water bodies"
+    },
+    "SPL_SVM": {
+        name: "SPL_SVM",
+        min: 1.820700,
+        max: 12.156600,
+        avg: 6.591985,
+        desc: "Social Vulnerability Module score"
+    },
+    "RPL_SVM": {
+        name: "RPL_SVM",
+        min: 0.000900,
+        max: 0.999900,
+        avg: 0.468410,
+        desc: "Ranked percentile score of the Social Vulnerability Module"
+    },
+    "F_ASTHMA": {
+        name: "F_ASTHMA",
+        min: 0.000000,
+        max: 1.000000,
+        avg: 0.261818,
+        desc: "Prevalence of asthma"
+    },
+    "EP_CANCER": {
+        name: "EP_CANCER",
+        min: 1.500000,
+        max: 16.400000,
+        avg: 5.938667,
+        desc: "Percent of population with cancer"
+    },
+    "F_BPHIGH": {
+        name: "F_BPHIGH",
+        min: 0.000000,
+        max: 1.000000,
+        avg: 0.184848,
+        desc: "Prevalence of high blood pressure"
+    },
+    "EPL_DIABETES": {
+        name: "EPL_DIABETES",
+        min: 0.001400,
+        max: 0.999300,
+        avg: 0.400321,
+        desc: "Percentile of diabetes prevalence"
+    }
+};
+
+
 
 let readableNames = {
     "SPL_THEMES": "Composite social vulnerability",

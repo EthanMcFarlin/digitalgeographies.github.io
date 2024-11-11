@@ -6,7 +6,7 @@ let myTimeline;
 let myScatterplot;
 
 let promises = [
-    d3.csv("data/transformed_data_6_EJI.csv"),
+    d3.csv("data/transformed_data_7_EJI.csv"),
     d3.csv("data/time_data_aggregated_1.csv", d => ({
         Year: +d.Year,
         Warehouses: +d.Warehouses,
