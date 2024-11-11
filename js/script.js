@@ -244,7 +244,7 @@ map.on('style.load', () => {
 
     map.addSource('centers', {
         type: 'geojson',
-        data: 'data/map_4.geojson'
+        data: 'data/map_5.geojson'
     });
 
     map.addLayer({
