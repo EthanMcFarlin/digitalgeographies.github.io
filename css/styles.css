@@ -1,6 +1,21 @@
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
+select.variable-selection.dark,
+#EJ-variables.dark,
+#SVI-variables.dark {
+    color: #fff; /* Ensure the text color is white */
+    background-color: #1A1A1B; /* Background to match dark theme */
+}
+
+select.variable-selection,
+#EJ-variables,
+#SVI-variables {
+    /*font-family: 'Montserrat', sans-serif; !* Consistent font appearance *!*/
+    /*padding: 10px; !* Padding for better appearance *!*/
+    /*border-radius: 6px; !* Rounded corners *!*/
+}
+
 .mapboxgl-popup-content {
     padding: 25px !important;
 }
