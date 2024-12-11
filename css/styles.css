@@ -223,6 +223,10 @@ div#rounded-parent.dark.parent2-minimized > button, #histogramParent.dark.parent
     background: transparent;
 }
 
+#homeButton > span {
+    padding-left: 10px;
+}
+
 #homeButton:hover, #minimize:hover, #minimize2:hover {
     transform:scale(0.9);
     opacity: 0.7;

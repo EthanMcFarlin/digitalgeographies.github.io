@@ -23,7 +23,7 @@ body {
 /* ============================ */
 
 #homeHero {
-    height: 100vh;
+    height: 97vh;
     width: 100vw;
     position: relative;
     /*background: red;*/
@@ -289,6 +289,7 @@ body {
     opacity: 0.9;
     font-size: 20px;
     font-family: "Epilogue";
+
 
 }
 
